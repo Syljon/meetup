@@ -5,7 +5,7 @@ const eventBox = props => (
     <h1> Title:{props.title}</h1>
     <h2>{props.place}</h2>
     <h3>ID:{props.id}</h3>
-    <p style={{ width: "500px" }}>
+    <p style={{ width: "500px", margin: "0 auto" }}>
       qweqweq weqwebjqwebqwjebqjw bjeqwbe adsjkbfashfbhsajkbfjhkasfjkasbj
       hjasvdhj asjnkdbajksdbasbdabskjb jbkdabdkabsjdabdkasbdbk
     </p>

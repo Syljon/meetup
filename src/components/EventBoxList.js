@@ -1,10 +1,15 @@
 import React from "react";
 import EventBox from "./EventBox";
 const eventBoxList = props => {
-  const reduceList = props.list.filter(
-    f => f.place.indexOf(props.cityReducer) !== -1
+  let cityReduceList = props.list.filter(
+    f => f.place.toLowerCase().indexOf(props.cityReducer.toLowerCase()) !== -1
   );
-  const eventList = reduceList.map(event => (
+  console.log(cityReduceList);
+  let titlereduceList = cityReduceList.filter(
+    p => p.title.toLowerCase().indexOf(props.titleReducer.toLowerCase()) !== -1
+  );
+  console.log(titlereduceList);
+  const eventList = titlereduceList.map(event => (
     <EventBox
       key={event.id}
       id={event.id}
