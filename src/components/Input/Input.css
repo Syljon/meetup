@@ -1,0 +1,9 @@
+.Input {
+  width: 80%;
+  margin: auto;
+  font-size: 1rem;
+  padding: 0.7rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
