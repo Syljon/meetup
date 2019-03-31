@@ -1,8 +1,10 @@
 import React from "react";
-import EventBox from "./EventBox/EventBox";
+import EventBox from "../EventBox/EventBox";
 const eventBoxList = props => {
-  let list = props.list;
-
+  let list = [];
+  if (props.cityReducer !== "" || props.titleReducer !== "") {
+    list = props.list;
+  }
   if (props.cityReducer !== "") {
     console.log("cityReducer");
     list = list.filter(
@@ -27,7 +29,7 @@ const eventBoxList = props => {
       image={event.image}
     />
   ));
-  return <div>{eventList}</div>;
+  return eventList;
 };
 
 export default eventBoxList;
