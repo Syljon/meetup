@@ -22,12 +22,30 @@ class App extends Component {
     setTimeout(() => {
       this.setState({
         events: [
-          { id: 1, title: "Event1", place: "Katowice" },
-          { id: 2, title: "Event2", place: "Wrocaław" },
-          { id: 3, title: "Event3", place: "Poznań" },
-          { id: 4, title: "Event4", place: "Warszawa" },
-          { id: 5, title: "Event5", place: "Poznań" },
-          { id: 6, title: "Event6", place: "Warszawa" }
+          {
+            id: 1,
+            title: "Śląski Festiwal Nauki w Chorzowie",
+            place: "Katowice",
+            image:
+              "https://images.pexels.com/photos/1165607/pexels-photo-1165607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          },
+          {
+            id: 2,
+            title: "Event2",
+            place: "Wrocaław",
+            image:
+              "https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          },
+          { id: 3, title: "Event3", place: "Poznań", image: "" },
+          { id: 4, title: "Event4", place: "Warszawa", image: "" },
+          {
+            id: 5,
+            title: "Event5",
+            place: "Poznań",
+            image:
+              "https://images.pexels.com/photos/1371179/pexels-photo-1371179.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          },
+          { id: 6, title: "Event6", place: "Warszawa", image: "" }
         ]
       });
     }, 2000);
@@ -40,10 +58,10 @@ class App extends Component {
           <nav>
             <ul>
               <li>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="#">Add Event</a>
+                <a href="/">Add Event</a>
               </li>
             </ul>
           </nav>
@@ -59,9 +77,11 @@ class App extends Component {
             value={this.state.citySearch}
             placeholder="City"
           />
+
           <p>
-            {this.state.citySearch ? this.state.citySearch : "Write something"}
+            {this.state.titleSearch ? this.state.titleSearch : "Write Title"}
           </p>
+          <p>{this.state.citySearch ? this.state.citySearch : "Write City"}</p>
         </header>
         {this.state.events.length > 0 ? (
           <EventBoxList

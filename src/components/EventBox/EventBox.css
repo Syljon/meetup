@@ -1,0 +1,38 @@
+.EventBox {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid orangered;
+  background-color: #f4f4f4;
+  box-shadow: 0px 1rem 3rem 0.5rem rgba(0, 0, 0, 0.6);
+  margin-bottom: 2rem;
+  display: flex;
+  cursor: pointer;
+  /* flex-direction: column; */
+}
+.EventBox__image {
+  /* height: 200px; */
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  -webkit-clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+}
+.EventBox__content {
+  min-height: 200px;
+  padding: 1rem;
+}
+.EventBox__content-title {
+  font-size: 2rem;
+  padding: 0 0 1rem;
+  margin: 0 0 0.5rem;
+  border-bottom: 2px solid #333;
+}
+.EventBox__content-place {
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+}
+.EventBox__content-description {
+  font-size: 0.9rem;
+}
