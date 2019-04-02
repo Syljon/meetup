@@ -2,7 +2,7 @@
   width: 80%;
   margin: 0 auto;
   border: 1px solid orangered;
-  background-color: #f4f4f4;
+  background-color: #eee;
   box-shadow: 0px 1rem 3rem 0.5rem rgba(0, 0, 0, 0.6);
   margin-bottom: 2rem;
   display: flex;
@@ -24,12 +24,14 @@
   padding: 1rem;
 }
 .EventBox__content-title {
+  color: #111;
   font-size: 2rem;
   padding: 0 0 1rem;
   margin: 0 0 0.5rem;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #555;
 }
 .EventBox__content-place {
+  color: #333;
   font-size: 1.8rem;
   margin: 0 0 1rem;
 }

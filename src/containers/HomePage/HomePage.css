@@ -1,17 +1,34 @@
 .HomePage__header {
-  padding: 10vh 0;
+  height: 35vh;
   background-color: #282c34;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
+  overflow-y: hidden;
+  position: relative;
+}
+.header__heading {
+  font-size: 3.5rem;
+  margin-top: 8vh;
+  margin-bottom: 1rem;
 }
 .header__inputs {
   width: 80%;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 1.5rem;
 }
 .header__input {
   width: 45%;
   display: block;
+}
+.city__list {
+  display: flex;
+  list-style-type: none;
+}
+.EventBoxList {
+  padding: 5vh 0;
+  height: 65vh;
+  overflow-y: scroll;
 }

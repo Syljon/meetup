@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import EventBoxList from "../../components/EventBoxList/EventBoxList";
 import Input from "../../components/Input/Input";
+import CityButton from "../../components/Buttons/CityButton/CityButton";
+import Spinner from "../../components/Spinner/Spinner";
 
 import "./HomePage.css";
 class HomePage extends Component {
@@ -17,7 +19,10 @@ class HomePage extends Component {
   cityChangeHandler = e => {
     this.setState({ citySearch: e.target.value });
   };
-
+  cityButtonClickHandler = e => {
+    console.log(e.target.value);
+    this.setState({ citySearch: e.target.value });
+  };
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -32,7 +37,7 @@ class HomePage extends Component {
           {
             id: 2,
             title: "Open mid",
-            place: "Wrocaław",
+            place: "Wrocław",
             image:
               "https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           },
@@ -56,7 +61,7 @@ class HomePage extends Component {
           {
             id: 8,
             title: "Event2",
-            place: "Wrocaław",
+            place: "Wrocław",
             image:
               "https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
           },
@@ -76,7 +81,7 @@ class HomePage extends Component {
     return (
       <div className="HomePage">
         <header className="HomePage__header">
-          <h1>Find Event</h1>
+          <h1 className="header__heading">Find Event</h1>
           <div className="header__inputs">
             <div className="header__input">
               <Input
@@ -94,14 +99,34 @@ class HomePage extends Component {
               />
             </div>
           </div>
+          <ul className="city__list">
+            <li>
+              <CityButton
+                clicked={this.cityButtonClickHandler}
+                place="Katowice"
+              />
+            </li>
+            <li>
+              <CityButton
+                place="Warszawa"
+                clicked={this.cityButtonClickHandler}
+              />
+            </li>
+            <li>
+              <CityButton
+                place="Wrocław"
+                clicked={this.cityButtonClickHandler}
+              />
+            </li>
+            <li>
+              <CityButton
+                place="Chorzów"
+                clicked={this.cityButtonClickHandler}
+              />
+            </li>
+          </ul>
         </header>
-        <div
-          style={{
-            height: "100%",
-            backgroundColor: "red",
-            overflowY: "scroll"
-          }}
-        >
+        <div className="EventBoxList">
           {this.state.events.length > 0 ? (
             <EventBoxList
               list={this.state.events}
@@ -109,7 +134,7 @@ class HomePage extends Component {
               titleReducer={this.state.titleSearch}
             />
           ) : (
-            <h1>{"Loading...."}</h1>
+            <Spinner />
           )}
         </div>
       </div>
