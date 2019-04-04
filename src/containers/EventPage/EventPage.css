@@ -1,14 +1,15 @@
 .EventPage {
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 .EventPage__image {
   width: 100%;
-  height: 40vh;
+  height: 60vh;
   margin: 8vh 0 2vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   opacity: 0.8;
 }
 .EventPage__content {
@@ -22,7 +23,7 @@
 }
 .EventPage__content-place {
   font-size: 1.5rem;
-  padding: 0.2rem 5rem;
+  padding: 0.1rem 5rem;
 }
 .EventPage__content-description {
   font-size: 1rem;

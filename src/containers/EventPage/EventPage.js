@@ -29,7 +29,6 @@ class EventPage extends Component {
           <h1 className="EventPage__content-title"> {this.state.title}</h1>
           <h2 className="EventPage__content-place">
             {this.state.place ? this.state.place.address : ""}
-            {this.state.time}
           </h2>
           <h2 className="EventPage__content-place">
             {this.state.place ? this.state.place.city : ""}

@@ -12,12 +12,9 @@ class HomePage extends Component {
     events: []
   };
 
-  titleChangeHandler = e => {
-    this.setState({ titleSearch: e.target.value });
-  };
-
-  cityChangeHandler = e => {
-    this.setState({ citySearch: e.target.value });
+  InputChangeHandler = e => {
+    console.log(e.target.name, e.target.value);
+    this.setState({ [e.target.name]: e.target.value });
   };
   cityButtonClickHandler = e => {
     console.log(e.target.value);
@@ -85,7 +82,8 @@ class HomePage extends Component {
           <div className="header__inputs">
             <div className="header__input">
               <Input
-                changed={this.titleChangeHandler}
+                name="titleSearch"
+                changed={this.InputChangeHandler}
                 value={this.state.titleSearch}
                 placeholder="Enter Title ..."
               />
@@ -93,7 +91,8 @@ class HomePage extends Component {
 
             <div className="header__input">
               <Input
-                changed={this.cityChangeHandler}
+                name="citySearch"
+                changed={this.InputChangeHandler}
                 value={this.state.citySearch}
                 placeholder="Enter City ..."
               />

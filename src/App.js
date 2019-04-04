@@ -9,8 +9,8 @@ class App extends Component {
     return (
       <div className="wrapper">
         <Navigation />
-        {/* <HomePage /> */}
-        <EventPage />
+        <HomePage />
+        {/* <EventPage /> */}
       </div>
     );
   }
