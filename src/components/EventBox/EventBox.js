@@ -20,7 +20,18 @@ const eventBox = props => (
         inventore laudantium iste id quam voluptatibus veniam accusamus
         repellendus, quae obcaecati. Amet, dicta! Doloribus possimus natus
         voluptatum odio ex totam aliquid quasi non aliquam dignissimos sit amet,
-        asperiores voluptate labore. Ratione, aliquam!
+        asperiores voluptate labore. Ratione, aliquam! inventore laudantium iste
+        id quam voluptatibus veniam accusamus repellendus, quae obcaecati. Amet,
+        dicta! Doloribus possimus natus voluptatum odio ex totam aliquid quasi
+        non aliquam dignissimos sit amet, asperiores voluptate labore. Ratione,
+        aliquam! inventore laudantium iste id quam voluptatibus veniam accusamus
+        repellendus, quae obcaecati. Amet, dicta! Doloribus possimus natus
+        voluptatum odio ex totam aliquid quasi non aliquam dignissimos sit amet,
+        asperiores voluptate labore. Ratione, aliquam! inventore laudantium iste
+        id quam voluptatibus veniam accusamus repellendus, quae obcaecati. Amet,
+        dicta! Doloribus possimus natus voluptatum odio ex totam aliquid quasi
+        non aliquam dignissimos sit amet, asperiores voluptate labore. Ratione,
+        aliquam!
       </p>
     </div>
   </div>
