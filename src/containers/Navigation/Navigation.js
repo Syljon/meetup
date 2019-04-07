@@ -1,22 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Navigation.css";
 import logo from "../../assets/logo.png";
-const navigation = () => (
-  <nav className="navbar">
-    <img className="logo" src={logo} />
-    <ul className="nav">
-      <li className="nav__item">
-        <a className="nav__link" href="/">
-          Home
-        </a>
-      </li>
-      <li className="nav__item">
-        <a className="nav__link" href="/">
-          Add New
-        </a>
-      </li>
-    </ul>
-  </nav>
-);
+import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
+import SideMenu from "../../components/Navigation/SideMenu/SideMenu";
+class Navigation extends Component {
+  state = {
+    showSideDrawer: false
+  };
 
-export default navigation;
+  buttonClickHandler = () => {
+    this.setState(prevState => {
+      return { showSideDrawer: !prevState.showSideDrawer };
+    });
+  };
+  render() {
+    return (
+      <nav className="navbar">
+        <img className="logo" src={logo} alt="Logo" />
+        {this.state.showSideDrawer ? <SideMenu /> : null}
+        <Toolbar />
+        <div className="burger" onClick={this.buttonClickHandler}>
+          <div />
+          <div />
+          <div />
+        </div>
+      </nav>
+    );
+  }
+}
+
+export default Navigation;

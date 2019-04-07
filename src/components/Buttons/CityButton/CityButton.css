@@ -1,7 +1,9 @@
 .CityButton {
   background-color: #3a72ec;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-  margin: 0 0.5rem;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 0.5rem;
   border-radius: 15px;
 }

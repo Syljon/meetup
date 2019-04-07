@@ -1,34 +1,74 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
 .HomePage__header {
-  height: 35vh;
   background-color: #282c34;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
-  overflow-y: hidden;
-  position: relative;
+  width: 100%;
+  height: 35vh;
 }
 .header__heading {
-  font-size: 3.5rem;
+  font-size: 2rem;
   margin-top: 8vh;
   margin-bottom: 1rem;
+  text-align: center;
 }
 .header__inputs {
   width: 80%;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1.5rem;
 }
 .header__input {
-  width: 45%;
-  display: block;
+  margin-bottom: 1rem;
 }
 .city__list {
-  display: flex;
-  list-style-type: none;
+  display: none;
 }
 .EventBoxList {
-  padding: 5vh 0;
+  width: 100%;
+  padding: 10vh 0;
   height: 65vh;
   overflow-y: scroll;
+}
+
+@media (min-width: 500px) {
+  .header__heading {
+    font-size: 3.5rem;
+  }
+
+  .header__inputs {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .HomePage {
+    flex-direction: row;
+  }
+
+  .HomePage__header {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 40%;
+    height: 100vh;
+  }
+  .city__list {
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+  }
+  .EventBoxList {
+    width: 100%;
+    padding: 10vh 0;
+    height: 100vh;
+    overflow-y: scroll;
+  }
 }

@@ -1,0 +1,32 @@
+.sideMenu {
+  position: fixed;
+  top: 8vh;
+  left: 0;
+  width: 100%;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  background-color: #333;
+}
+.sideMenu__item {
+  list-style: none;
+  width: 100%;
+  padding: 5vh 0;
+  cursor: pointer;
+}
+
+.sideMenu__link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: black;
+  margin: 0 1rem;
+}
+
+@media (min-width: 500px) {
+  .sideMenu {
+    display: none;
+  }
+}
