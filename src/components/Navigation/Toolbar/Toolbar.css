@@ -2,18 +2,18 @@
   display: flex;
   text-align: center;
   align-items: center;
-  border: 1px solid black;
+  height: 100%;
 }
 .toolbar__item {
   list-style: none;
-  padding: 0 8px;
 }
 
 .toolbar__link {
   font-size: 1rem;
   text-decoration: none;
   color: black;
-  margin: 0 1rem;
+  padding: 1rem;
+  border: 1px solid black;
 }
 
 @media (max-width: 500px) {

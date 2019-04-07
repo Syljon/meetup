@@ -1,17 +1,12 @@
 import React, { Component } from "react";
+import { apiEvents } from "../../fakeAPI/events";
 import "./EventPage.css";
 class EventPage extends Component {
   state = {};
   componentDidMount() {
+    console.log(this.props.match.params.id);
     setTimeout(() => {
-      let event = {
-        id: 1,
-        title: "Śląski Festiwal Nauki w Katowicach",
-        place: { address: "ul.Wojaka 32", city: "Katowice" },
-        time: "12:30:00",
-        image:
-          "https://images.pexels.com/photos/1165607/pexels-photo-1165607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      };
+      let event = apiEvents[this.props.match.params.id];
       const pepega = { ...event };
       this.setState(pepega);
     }, 1000);
@@ -22,19 +17,23 @@ class EventPage extends Component {
         <div
           className="EventPage__image"
           style={{
-            backgroundImage: this.state.image ? `url(${this.state.image})` : ""
+            backgroundImage: this.state.image
+              ? `url(${this.state.image})`
+              : "linear-gradient(to bottom, blue, #2f00ff)"
           }}
         />
         <div className="EventPage__content">
-          <h1 className="EventPage__content-title"> {this.state.title}</h1>
+          <h1 className="EventPage__content-title">
+            {this.state.title ? this.state.title : "No data found"}
+          </h1>
           <h2 className="EventPage__content-place">
-            {this.state.place ? this.state.place.address : ""}
+            {this.state.place ? this.state.place.address : "No data found"}
           </h2>
           <h2 className="EventPage__content-place">
-            {this.state.place ? this.state.place.city : ""}
+            {this.state.place ? this.state.place.city : "No data found"}
           </h2>
           <h2 className="EventPage__content-place">
-            {this.state.time ? this.state.time : ""}
+            {this.state.time ? this.state.time : "No data found"}
           </h2>
           <p className="EventPage__content-description  ">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi

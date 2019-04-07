@@ -1,5 +1,7 @@
 import React from "react";
 import EventBox from "../EventBox/EventBox";
+import { Link } from "react-router-dom";
+
 const eventBoxList = props => {
   let list = [];
   if (props.cityReducer !== "" || props.titleReducer !== "") {
@@ -8,7 +10,9 @@ const eventBoxList = props => {
   if (props.cityReducer !== "") {
     console.log("cityReducer");
     list = list.filter(
-      f => f.place.toLowerCase().indexOf(props.cityReducer.toLowerCase()) !== -1
+      f =>
+        f.place.city.toLowerCase().indexOf(props.cityReducer.toLowerCase()) !==
+        -1
     );
   }
   console.log(list);
@@ -21,13 +25,18 @@ const eventBoxList = props => {
   }
   console.log(list);
   const eventList = list.map(event => (
-    <EventBox
+    <Link
+      to={`/event/${event.id}`}
       key={event.id}
-      id={event.id}
-      title={event.title}
-      place={event.place}
-      image={event.image}
-    />
+      style={{ textDecoration: "none" }}
+    >
+      <EventBox
+        id={event.id}
+        title={event.title}
+        place={event.place.city}
+        image={event.image}
+      />
+    </Link>
   ));
   return eventList;
 };

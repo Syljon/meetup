@@ -1,22 +1,22 @@
 import React from "react";
 import "./Toolbar.css";
-
+import { Link } from "react-router-dom";
 const toolbar = props => (
   <ul className="toolbar">
     <li className="toolbar__item">
-      <a className="toolbar__link" href="/">
+      <Link className="toolbar__link" to="/">
         Home
-      </a>
+      </Link>
     </li>
     <li className="toolbar__item">
-      <a className="toolbar__link" href="/">
+      <Link className="toolbar__link" to="/add">
         Add New
-      </a>
+      </Link>
     </li>
     <li className="toolbar__item">
-      <a className="toolbar__link" href="/">
-        Add New
-      </a>
+      <Link className="toolbar__link" to="/login">
+        Login
+      </Link>
     </li>
   </ul>
 );

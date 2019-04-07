@@ -12,8 +12,12 @@ const eventBox = props => (
       }}
     />
     <div className="EventBox__content">
-      <h1 className="EventBox__content-title"> {props.title}</h1>
-      <h2 className="EventBox__content-place">{props.place}</h2>
+      <h1 className="EventBox__content-title">
+        {props.title ? props.title : "No data found"}
+      </h1>
+      <h2 className="EventBox__content-place">
+        {props.place ? props.place : "No data found"}
+      </h2>
       <p className="EventBox__content-description">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi maiores
         cupiditate voluptatem modi autem maxime recusandae dolore magnam

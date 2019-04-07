@@ -9,16 +9,17 @@ import { apiEvents } from "../../fakeAPI/events";
 class HomePage extends Component {
   state = {
     citySearch: "",
-    titleSearch: "S",
+    titleSearch: "",
     events: []
   };
 
   componentDidMount() {
+    console.log(apiEvents);
     setTimeout(() => {
       this.setState({
         events: apiEvents
       });
-    }, 2000);
+    }, 1000);
   }
 
   InputChangeHandler = e => {
