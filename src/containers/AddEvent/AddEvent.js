@@ -3,12 +3,17 @@ import Input from "../../components/Input/Input";
 import "./AddEvent.css";
 
 class AddEvent extends Component {
-  state = { title: null, address: null, city: null, date: null };
+  state = { title: "", address: "", city: "", date: "", time: "" };
 
   InputChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
+  // InputDataHandler = () => {
+  //   this.setState({ date: this.dataInput.value });
+  // };
+  // InputTimeHandler = () => {
+  //   this.setState({ time: this.timeInput.value });
+  // };
   log = () => {
     console.log(this.state);
   };
@@ -41,7 +46,6 @@ class AddEvent extends Component {
           />
           <Input
             name="date"
-            value={this.state.date}
             changed={this.InputChangeHandler}
             placeholder="Enter Date"
             style={{ marginBottom: "1rem" }}

@@ -10,6 +10,7 @@ const input = props => (
     value={props.value}
     placeholder={props.placeholder}
     style={props.style}
+    ref={props.test}
   />
 );
 

@@ -1,9 +1,9 @@
 .sideMenu {
   position: fixed;
-  top: 8vh;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 92vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -14,17 +14,21 @@
 .sideMenu__item {
   list-style: none;
   width: 100%;
-  padding: 5vh 0;
-  cursor: pointer;
+  padding: 2rem 0;
 }
-
 .sideMenu__link {
-  font-size: 1.2rem;
+  width: 100%;
+  font-size: 1.5rem;
   text-decoration: none;
   color: black;
   margin: 0 1rem;
+  cursor: pointer;
+  border-left: 1rem solid transparent;
 }
 
+.sideMenu__link:hover {
+  border-left: 1rem solid #ddd;
+}
 @media (min-width: 500px) {
   .sideMenu {
     display: none;
