@@ -3,6 +3,7 @@ import EventBoxList from "../../components/EventBoxList/EventBoxList";
 import Input from "../../components/Input/Input";
 import CityButton from "../../components/Buttons/CityButton/CityButton";
 import Spinner from "../../components/Spinner/Spinner";
+import { connect } from "react-redux";
 
 import "./HomePage.css";
 import { apiEvents } from "../../fakeAPI/events";
@@ -83,6 +84,7 @@ class HomePage extends Component {
           </ul>
         </header>
         <div className="EventBoxList">
+          {this.props.token}
           {this.state.events.length > 0 ? (
             <EventBoxList
               list={this.state.events}
@@ -97,5 +99,10 @@ class HomePage extends Component {
     );
   }
 }
-
-export default HomePage;
+const mapStateToProps = state => {
+  return {
+    test: state.test,
+    token: state.token
+  };
+};
+export default connect(mapStateToProps)(HomePage);

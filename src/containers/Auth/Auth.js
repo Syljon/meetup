@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Input from "../../components/Input/Input";
+import { connect } from "react-redux";
+
+import * as actions from "../../store/actions";
 import "./Auth.css";
 class Auth extends Component {
   state = {
@@ -11,33 +14,11 @@ class Auth extends Component {
   };
   sendFormHandler = e => {
     e.preventDefault();
-    let url =
-      "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
-    if (this.state.isSignup) {
-      url =
-        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
-    }
-    const data = {
-      email: this.state.email,
-      password: this.state.password,
-      returnSecureToken: true
-    };
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data)
-    })
-      .then(response => {
-        console.log("Response:", response);
-        if (!this.state.isSignup) {
-          this.setState({ isSignup: true });
-        } else {
-          this.setState({ loged: true });
-        }
-      })
-      .catch(error => {
-        console.log("Error:", error);
-        this.setState({ registered: false });
-      });
+    this.props.onSubmitForm(
+      this.state.email,
+      this.state.password,
+      this.state.isSignup
+    );
   };
   authSwitch = () => {
     console.log(this.state.isSignup);
@@ -80,5 +61,13 @@ class Auth extends Component {
     );
   }
 }
-
-export default Auth;
+const mapDispatchToProps = dispatch => {
+  return {
+    onSubmitForm: (email, password, isSignup) =>
+      dispatch(actions.auth(email, password, isSignup))
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(Auth);
