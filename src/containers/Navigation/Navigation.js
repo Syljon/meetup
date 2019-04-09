@@ -3,6 +3,8 @@ import "./Navigation.css";
 import logo from "../../assets/logo.png";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import SideMenu from "../../components/Navigation/SideMenu/SideMenu";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions";
 import { Link } from "react-router-dom";
 class Navigation extends Component {
   state = {
@@ -21,9 +23,13 @@ class Navigation extends Component {
           <img src={logo} alt="Logo" />
         </Link>
         {this.state.showSideDrawer ? (
-          <SideMenu clicked={this.buttonClickHandler} />
+          <SideMenu
+            token={this.props.token}
+            clicked={this.buttonClickHandler}
+            logout={this.props.onLogout}
+          />
         ) : null}
-        <Toolbar />
+        <Toolbar token={this.props.token} logout={this.props.onLogout} />
         <div className="burger" onClick={this.buttonClickHandler}>
           <div />
           <div />
@@ -34,4 +40,19 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+const mapStateToProps = state => {
+  return {
+    token: state.token
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onLogout: () => dispatch(actions.logout())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navigation);

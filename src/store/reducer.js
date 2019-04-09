@@ -8,6 +8,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.AUTH_SUCCESS:
       return { ...state, token: action.token, userId: action.userId };
+    case actionTypes.LOGOUT:
+      return { ...state, token: null, userId: null };
     default:
       return state;
   }

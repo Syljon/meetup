@@ -9,8 +9,7 @@ class Auth extends Component {
   state = {
     email: "",
     password: "",
-    isSignup: true,
-    loged: false
+    isSignup: true
   };
   sendFormHandler = e => {
     e.preventDefault();
@@ -31,7 +30,7 @@ class Auth extends Component {
   render() {
     return (
       <div className="AuthPage">
-        {this.state.loged ? <Redirect to="/" /> : null}
+        {this.props.token ? <Redirect to="/" /> : null}
         <form className="form" onSubmit={this.sendFormHandler}>
           <h1 className="form-heading">
             {this.state.isSignup ? "Login" : "Registration"}
@@ -61,6 +60,13 @@ class Auth extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    token: state.token
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     onSubmitForm: (email, password, isSignup) =>
@@ -68,6 +74,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Auth);

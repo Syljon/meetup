@@ -20,14 +20,14 @@ export const auth = (email, password, isSignup) => {
       .then(response => response.json())
       .then(response => {
         console.log(response);
-        // const expirationDate = new Date(
-        //   new Date().getTime() + response.data.expiresIn * 1000
-        // );
-        // localStorage.setItem("token", response.data.idToken);
-        // localStorage.setItem("expirationDate", expirationDate);
-        // localStorage.setItem("userId", response.data.localId);
+        const logoutDate = new Date(
+          new Date().getTime() + response.expiresIn * 1000
+        );
+        localStorage.setItem("token", response.idToken);
+        localStorage.setItem("userId", response.localId);
+        localStorage.setItem("logoutDate", logoutDate);
         dispatch(authSuccess(response.idToken, response.localId));
-        //dispatch(checkAuthTimeout(response.data.expiresIn));
+        dispatch(AuthTimeout(response.expiresIn * 1000));
       })
       .catch(err => {
         console.log("ERRRRRRRRRROR", err);
@@ -37,4 +37,18 @@ export const auth = (email, password, isSignup) => {
 
 export const authSuccess = (token, userId) => {
   return { type: actionTypes.AUTH_SUCCESS, token: token, userId: userId };
+};
+export const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("logoutDate");
+  console.log("[actions.js] LOGOUT");
+  return { type: actionTypes.LOGOUT };
+};
+export const AuthTimeout = expirationTime => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(logout());
+    }, expirationTime);
+  };
 };
