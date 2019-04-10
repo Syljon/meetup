@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Input from "../../components/Input/Input";
 import { connect } from "react-redux";
-
+import { Redirect } from "react-router-dom";
 import "./AddEvent.css";
 
 class AddEvent extends Component {
@@ -10,12 +10,6 @@ class AddEvent extends Component {
   InputChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  // InputDataHandler = () => {
-  //   this.setState({ date: this.dataInput.value });
-  // };
-  // InputTimeHandler = () => {
-  //   this.setState({ time: this.timeInput.value });
-  // };
   postFormData = e => {
     e.preventDefault();
     const data = {
@@ -23,7 +17,8 @@ class AddEvent extends Component {
       place: { address: this.state.address, city: this.state.city },
       date: { day: this.state.date, time: this.state.time },
       userId: this.props.userId,
-      userEmail: this.props.userEmail
+      userEmail: this.props.userEmail,
+      eventId: null
     };
     const url =
       "https://react-meetup-c3c9c.firebaseio.com/events.json?auth=" +
@@ -34,7 +29,8 @@ class AddEvent extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
+        console.log(response.name);
+        this.setState({ eventId: response.name });
       })
       .catch(err => {
         console.log(err);
@@ -44,6 +40,7 @@ class AddEvent extends Component {
     return (
       <div className="AddEventPage">
         {this.props.userEmail}
+        {this.state.eventId ? <Redirect to="/" /> : null}
         <form className="Form" onSubmit={this.postFormData}>
           <h1>AddEvent</h1>
           <Input

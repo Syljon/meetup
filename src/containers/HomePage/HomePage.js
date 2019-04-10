@@ -6,7 +6,6 @@ import Spinner from "../../components/Spinner/Spinner";
 import { connect } from "react-redux";
 
 import "./HomePage.css";
-import { apiEvents } from "../../fakeAPI/events";
 class HomePage extends Component {
   state = {
     citySearch: "",
@@ -14,13 +13,26 @@ class HomePage extends Component {
     events: []
   };
 
-  componentDidMount() {
-    console.log(apiEvents);
-    setTimeout(() => {
-      this.setState({
-        events: apiEvents
+  getEvents = () => {
+    const url = "https://react-meetup-c3c9c.firebaseio.com/events.json";
+    fetch(url, {
+      method: "Get"
+    })
+      .then(response => response.json())
+      .then(response => {
+        let fetchEvents = [];
+        for (let key in response) {
+          response[key].id = key;
+          fetchEvents.push(response[key]);
+        }
+        this.setState({ events: fetchEvents });
+      })
+      .catch(err => {
+        console.log(err);
       });
-    }, 1000);
+  };
+  componentDidMount() {
+    this.getEvents();
   }
 
   InputChangeHandler = e => {

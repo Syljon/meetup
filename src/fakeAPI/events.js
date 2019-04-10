@@ -1,7 +1,7 @@
 export const apiEvents = [
   {
     id: 0,
-    title: "Śląski festiwal nauki w katowicach",
+    title: "Śląski festiwal nauki w Katowicach",
     place: { address: "Gdzieś tam", city: "Katowice" },
     time: "13:20",
     image:
