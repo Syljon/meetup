@@ -3,13 +3,30 @@ import { apiEvents } from "../../fakeAPI/events";
 import "./EventPage.css";
 class EventPage extends Component {
   state = {};
+
+  getEvent = id => {
+    console.log(id);
+    const url = `https://react-meetup-c3c9c.firebaseio.com/events/${id}.json`;
+    fetch(url, {
+      method: "Get"
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   componentDidMount() {
-    console.log(this.props.match.params.id);
     setTimeout(() => {
       let event = apiEvents[this.props.match.params.id];
       const pepega = { ...event };
       this.setState(pepega);
     }, 1000);
+    this.getEvent(this.props.match.params.id);
   }
   render() {
     return (
@@ -19,7 +36,7 @@ class EventPage extends Component {
           style={{
             backgroundImage: this.state.image
               ? `url(${this.state.image})`
-              : "linear-gradient(to bottom, blue, #2f00ff)"
+              : "linear-gradient(30deg,  #1E5799  50%, #252ABA 100%)"
           }}
         />
         <div className="EventPage__content">
@@ -33,7 +50,10 @@ class EventPage extends Component {
             {this.state.place ? this.state.place.city : "No data found"}
           </h2>
           <h2 className="EventPage__content-place">
-            {this.state.time ? this.state.time : "No data found"}
+            {this.state.date ? this.state.date.day : "No data found"}
+          </h2>
+          <h2 className="EventPage__content-place">
+            {this.state.date ? this.state.date.time : "No data found"}
           </h2>
           <p className="EventPage__content-description  ">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
