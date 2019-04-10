@@ -26,7 +26,7 @@ export const auth = (email, password, isSignup) => {
         localStorage.setItem("token", response.idToken);
         localStorage.setItem("userId", response.localId);
         localStorage.setItem("logoutDate", logoutDate);
-        dispatch(authSuccess(response.idToken, response.localId));
+        dispatch(authSuccess(response.idToken, response.localId, email));
         dispatch(AuthTimeout(response.expiresIn * 1000));
       })
       .catch(err => {
@@ -35,8 +35,13 @@ export const auth = (email, password, isSignup) => {
   };
 };
 
-export const authSuccess = (token, userId) => {
-  return { type: actionTypes.AUTH_SUCCESS, token: token, userId: userId };
+export const authSuccess = (token, userId, userEmail) => {
+  return {
+    type: actionTypes.AUTH_SUCCESS,
+    token: token,
+    userId: userId,
+    userEmail: userEmail
+  };
 };
 export const logout = () => {
   localStorage.removeItem("token");
