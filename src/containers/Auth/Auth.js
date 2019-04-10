@@ -7,8 +7,8 @@ import * as actions from "../../store/actions";
 import "./Auth.css";
 class Auth extends Component {
   state = {
-    email: "",
-    password: "",
+    email: "test@test.com",
+    password: "zxczxc",
     isSignup: true
   };
   sendFormHandler = e => {

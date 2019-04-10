@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Input from "../../components/Input/Input";
+import { connect } from "react-redux";
+
 import "./AddEvent.css";
 
 class AddEvent extends Component {
@@ -14,13 +16,35 @@ class AddEvent extends Component {
   // InputTimeHandler = () => {
   //   this.setState({ time: this.timeInput.value });
   // };
-  log = () => {
-    console.log(this.state);
+  postFormData = e => {
+    e.preventDefault();
+    const data = {
+      title: this.state.title,
+      place: { address: this.state.address, city: this.state.city },
+      date: { day: this.state.date, time: this.state.time },
+      userId: this.props.userId,
+      userEmail: this.props.userEmail
+    };
+    const url =
+      "https://react-meetup-c3c9c.firebaseio.com/events.json?auth=" +
+      this.props.token;
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
   render() {
     return (
       <div className="AddEventPage">
-        <div className="Form">
+        {this.props.userEmail}
+        <form className="Form" onSubmit={this.postFormData}>
           <h1>AddEvent</h1>
           <Input
             name="title"
@@ -59,11 +83,17 @@ class AddEvent extends Component {
             style={{ marginBottom: "1rem" }}
             type="time"
           />
-          <button onClick={this.log}>ASDASD</button>
-        </div>
+          <button>ASDASD</button>
+        </form>
       </div>
     );
   }
 }
-
-export default AddEvent;
+const mapStateToProps = state => {
+  return {
+    userEmail: state.userEmail,
+    userId: state.userId,
+    token: state.token
+  };
+};
+export default connect(mapStateToProps)(AddEvent);
