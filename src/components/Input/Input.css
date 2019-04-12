@@ -1,8 +1,33 @@
 .Input {
   width: 100%;
   font-size: 1rem;
+}
+.Input_Default {
   padding: 0.7rem;
   border: 1px solid black;
   border-radius: 1rem;
   font-family: "Open Sans", sans-serif;
+}
+.Input_Form {
+  padding: 0.5rem 0 0.25rem 0.5rem;
+  color: #aaa;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #aaa;
+  font-family: "Open Sans", sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+.Input_Form:focus {
+  border-bottom: 2px solid #000;
+}
+
+.Input_File {
+  margin: 2rem;
+  cursor: pointer;
+}
+@media (min-width: 800px) {
+  .Input_Form {
+    font-size: 1.5rem;
+  }
 }

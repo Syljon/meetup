@@ -1,0 +1,21 @@
+.InputFile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.InputFileLabel {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  color: white;
+  background-color: #000;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.InputFile:focus + .InputFileLabel {
+  background-color: #666;
+}
