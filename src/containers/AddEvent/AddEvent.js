@@ -1,24 +1,70 @@
 import React, { Component } from "react";
+import { storage } from "../../firebase/index";
+
 import Input from "../../components/Input/Input";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./AddEvent.css";
 
 class AddEvent extends Component {
-  state = { title: "", address: "", city: "", date: "", time: "" };
+  state = {
+    title: "",
+    address: "",
+    city: "",
+    date: "",
+    time: "",
+    imageURL: null,
+    image: {}
+  };
 
   InputChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  postFormData = e => {
+  InputFileHandler = e => {
+    this.setState({ image: e.target.files[0] });
+  };
+  handleUpload = e => {
+    console.log("handleUpload");
     e.preventDefault();
+    const image = this.state.image;
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        //progress
+        console.log(snapshot);
+      },
+      error => {
+        //error
+        console.log(error);
+      },
+      () => {
+        //complete
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then(url => {
+            this.setState({ imageURL: url });
+            console.log("img1", this.state.imageURL);
+          })
+          .then(() => {
+            console.log("img2", this.state.imageURL);
+            this.postFormData();
+          });
+      }
+    );
+  };
+  postFormData = e => {
+    console.log("postFormData");
     const data = {
       title: this.state.title,
       place: { address: this.state.address, city: this.state.city },
       date: { day: this.state.date, time: this.state.time },
       userId: this.props.userId,
       userEmail: this.props.userEmail,
-      eventId: null
+      eventId: null,
+      imageURL: this.state.imageURL
     };
     const url =
       "https://react-meetup-c3c9c.firebaseio.com/events.json?auth=" +
@@ -41,7 +87,7 @@ class AddEvent extends Component {
       <div className="AddEventPage">
         {this.props.userEmail}
         {this.state.eventId ? <Redirect to="/" /> : null}
-        <form className="Form" onSubmit={this.postFormData}>
+        <form className="Form" onSubmit={this.handleUpload}>
           <h1>AddEvent</h1>
           <Input
             name="title"
@@ -80,6 +126,7 @@ class AddEvent extends Component {
             style={{ marginBottom: "1rem" }}
             type="time"
           />
+          <Input name="image" changed={this.InputFileHandler} type="file" />
           <button>ASDASD</button>
         </form>
       </div>

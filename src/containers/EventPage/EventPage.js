@@ -34,8 +34,8 @@ class EventPage extends Component {
         <div
           className="EventPage__image"
           style={{
-            backgroundImage: this.state.image
-              ? `url(${this.state.image})`
+            backgroundImage: this.state.imageURL
+              ? `url(${this.state.imageURL})`
               : "linear-gradient(30deg,  #1E5799  50%, #252ABA 100%)"
           }}
         />

@@ -34,7 +34,7 @@ const eventBoxList = props => {
         id={event.id}
         title={event.title}
         place={event.place.city}
-        image={event.image}
+        image={event.imageURL}
       />
     </Link>
   ));
