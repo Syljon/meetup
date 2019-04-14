@@ -9,6 +9,7 @@
 .InputFileLabel {
   font-size: 1rem;
   padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
   border-radius: 2rem;
   color: white;
   background-color: #000;

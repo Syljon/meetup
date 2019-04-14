@@ -3,6 +3,7 @@ import { storage } from "../../firebase/index";
 
 import Input from "../../components/Input/Input";
 import InputFile from "../../components/Input/InputFile";
+import SubmitButton from "../../components/Buttons/SubmitButton/SubmitButton";
 import { connect } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import { Redirect } from "react-router-dom";
@@ -139,7 +140,7 @@ class AddEvent extends Component {
               type="time"
             />
             <InputFile changed={this.InputFileHandler} />
-            <button>ASDASD</button>
+            <SubmitButton>Submit</SubmitButton>
           </form>
         )}
       </div>

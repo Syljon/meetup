@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Input from "../../components/Input/Input";
+import SubmitButton from "../../components/Buttons/SubmitButton/SubmitButton";
 import { connect } from "react-redux";
 
 import * as actions from "../../store/actions";
@@ -53,7 +54,7 @@ class Auth extends Component {
             changed={this.InputChangeHandler}
             style={{ marginBottom: "2rem" }}
           />
-          <button className="btnSubmit">SUBMIT</button>
+          <SubmitButton className="btnSubmit">SUBMIT</SubmitButton>
         </form>
         <button className="btnSwitch" onClick={this.authSwitch}>
           {this.state.isSignup ? "SIGNUP" : "SIGNIN"}
