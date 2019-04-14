@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./SideMenu.css";
 const sideMenu = props => (
   <ul className="sideMenu" onClick={props.clicked}>
-    <NavLink className="sideMenu__link" to="/">
+    <NavLink className="sideMenu__link" to="/" exact>
       <li className="sideMenu__item">Home</li>
     </NavLink>
     {props.token ? (
@@ -12,7 +12,7 @@ const sideMenu = props => (
       </NavLink>
     ) : null}
     {props.token ? (
-      <NavLink onClick={props.logout} className="sideMenu__link" to="/">
+      <NavLink onClick={props.logout} className="sideMenu__link" to="/logout">
         <li className="sideMenu__item">Logout</li>
       </NavLink>
     ) : (
