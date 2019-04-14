@@ -9,7 +9,7 @@
   font-family: "Open Sans", sans-serif;
 }
 .Input_Form {
-  padding: 0.5rem 0 0.25rem 0.5rem;
+  padding: 0 0 0.25rem 0.5rem;
   color: #aaa;
   outline: none;
   border: none;
@@ -26,8 +26,16 @@
   margin: 2rem;
   cursor: pointer;
 }
+
+.Label {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
 @media (min-width: 800px) {
   .Input_Form {
     font-size: 1.5rem;
+  }
+  .Label {
+    font-size: 1.3rem;
   }
 }

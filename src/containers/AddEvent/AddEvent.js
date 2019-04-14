@@ -104,6 +104,7 @@ class AddEvent extends Component {
               value={this.state.title}
               placeholder="Enter Title"
               style={{ marginBottom: "1rem" }}
+              labelText="Title"
             />
             <Input
               name="address"
@@ -112,6 +113,8 @@ class AddEvent extends Component {
               value={this.state.address}
               placeholder="Enter Address"
               style={{ marginBottom: "1rem" }}
+              type="text"
+              labelText="Address"
             />
             <Input
               name="city"
@@ -121,6 +124,7 @@ class AddEvent extends Component {
               placeholder="Enter City"
               style={{ marginBottom: "1rem" }}
               type="text"
+              labelText="City"
             />
             <Input
               name="date"
@@ -129,6 +133,7 @@ class AddEvent extends Component {
               placeholder="Enter Date"
               style={{ marginBottom: "1rem" }}
               type="date"
+              labelText="Date"
             />
             <Input
               name="time"
@@ -136,8 +141,9 @@ class AddEvent extends Component {
               value={this.state.time}
               changed={this.InputChangeHandler}
               placeholder="Enter Time"
-              style={{ marginBottom: "1rem" }}
+              style={{ marginBottom: "2rem" }}
               type="time"
+              labelText="Time"
             />
             <InputFile changed={this.InputFileHandler} />
             <SubmitButton>Submit</SubmitButton>

@@ -2,7 +2,12 @@ import React from "react";
 import "./Input.css";
 
 const input = props => (
-  <div>
+  <div style={{ textAlign: "left" }}>
+    {props.labelText ? (
+      <label className="Label" for={props.name}>
+        {props.labelText}
+      </label>
+    ) : null}
     <input
       id={props.name}
       type={props.type}
