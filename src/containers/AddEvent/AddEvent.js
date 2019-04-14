@@ -17,7 +17,7 @@ class AddEvent extends Component {
     date: "",
     time: "",
     imageURL: null,
-    image: {},
+    image: null,
     loading: false
   };
 
@@ -28,40 +28,40 @@ class AddEvent extends Component {
     this.setState({ image: e.target.files[0] });
   };
   handleUpload = e => {
-    console.log("handleUpload");
     e.preventDefault();
     this.setState({ loading: true });
-    const image = this.state.image;
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      snapshot => {
-        //progress
-        console.log(snapshot);
-      },
-      error => {
-        //error
-        console.log(error);
-      },
-      () => {
-        //complete
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then(url => {
-            this.setState({ imageURL: url });
-            console.log("img1", this.state.imageURL);
-          })
-          .then(() => {
-            console.log("img2", this.state.imageURL);
-            this.postFormData();
-          });
-      }
-    );
+    if (this.state.image) {
+      const image = this.state.image;
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on(
+        "state_changed",
+        snapshot => {
+          //progress
+          //console.log(snapshot);
+        },
+        error => {
+          //error
+          //console.log(error);
+        },
+        () => {
+          //complete
+          storage
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then(url => {
+              this.setState({ imageURL: url });
+            })
+            .then(() => {
+              this.postFormData();
+            });
+        }
+      );
+    } else {
+      this.postFormData();
+    }
   };
   postFormData = e => {
-    console.log("postFormData");
     const data = {
       title: this.state.title,
       place: { address: this.state.address, city: this.state.city },
@@ -80,7 +80,6 @@ class AddEvent extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response.name);
         this.setState({ eventId: response.name });
       })
       .catch(err => {
@@ -90,7 +89,6 @@ class AddEvent extends Component {
   render() {
     return (
       <div className="AddEventPage">
-        {this.props.userEmail}
         {this.state.eventId ? <Redirect to="/" /> : null}
         {this.state.loading ? (
           <Spinner />

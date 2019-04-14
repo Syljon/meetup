@@ -4,7 +4,7 @@ import "./Input.css";
 const input = props => (
   <div style={{ textAlign: "left" }}>
     {props.labelText ? (
-      <label className="Label" for={props.name}>
+      <label className="Label" htmlFor={props.name}>
         {props.labelText}
       </label>
     ) : null}

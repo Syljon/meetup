@@ -4,6 +4,7 @@ import EventPage from "./containers/EventPage/EventPage";
 import AddEvent from "./containers/AddEvent/AddEvent";
 import Navigation from "./containers/Navigation/Navigation";
 import Auth from "./containers/Auth/Auth";
+import YourEvents from "./containers/YourEvents/YourEvents";
 import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/event/:id" component={EventPage} />
           <Route exact path="/add" component={AddEvent} />
           <Route exact path="/login" component={Auth} />
+          <Route exact path="/yourevents" component={YourEvents} />
           <Redirect to="/" />
         </Switch>
       </div>

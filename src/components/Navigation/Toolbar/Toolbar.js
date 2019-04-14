@@ -12,6 +12,11 @@ const toolbar = props => (
       </NavLink>
     ) : null}
     {props.token ? (
+      <NavLink className="toolbar__link" to="/yourevents">
+        <li className="toolbar__item">Your Events</li>
+      </NavLink>
+    ) : null}
+    {props.token ? (
       <NavLink onClick={props.logout} className="toolbar__link" to="/logout">
         <li className="toolbar__item">Logout</li>
       </NavLink>
