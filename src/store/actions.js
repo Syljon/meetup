@@ -15,23 +15,26 @@ export const auth = (email, password, isSignup) => {
     }
     fetch(url, {
       method: "POST",
+
       body: JSON.stringify(data)
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
-        const logoutDate = new Date(
-          new Date().getTime() + response.expiresIn * 1000
-        );
-        localStorage.setItem("token", response.idToken);
-        localStorage.setItem("userId", response.localId);
-        localStorage.setItem("logoutDate", logoutDate);
-        dispatch(authSuccess(response.idToken, response.localId, email));
-        dispatch(AuthTimeout(response.expiresIn * 1000));
+        if (response.error) {
+          console.log("Error", response);
+          dispatch(authFail(response.error.message));
+        } else {
+          console.log("THEN", response);
+          const logoutDate = new Date(
+            new Date().getTime() + response.expiresIn * 1000
+          );
+          localStorage.setItem("token", response.idToken);
+          localStorage.setItem("userId", response.localId);
+          localStorage.setItem("logoutDate", logoutDate);
+          dispatch(authSuccess(response.idToken, response.localId, email));
+        }
       })
-      .catch(err => {
-        console.log("ERRRRRRRRRROR", err);
-      });
+      .catch(error => console.error("Error:", error));
   };
 };
 
@@ -43,6 +46,13 @@ export const authSuccess = (token, userId, userEmail) => {
     userEmail: userEmail
   };
 };
+
+export const authFail = error => {
+  return {
+    type: actionTypes.AUTH_FAIL,
+    error: error
+  };
+};
 export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("userId");
@@ -50,10 +60,6 @@ export const logout = () => {
   console.log("[actions.js] LOGOUT");
   return { type: actionTypes.LOGOUT };
 };
-export const AuthTimeout = expirationTime => {
-  return dispatch => {
-    setTimeout(() => {
-      dispatch(logout());
-    }, expirationTime);
-  };
+export const authReset = () => {
+  return { type: actionTypes.AUTH_RESET };
 };

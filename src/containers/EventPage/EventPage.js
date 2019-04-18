@@ -56,30 +56,9 @@ class EventPage extends Component {
             {this.state.date ? this.state.date.time : "No data found"}
           </h2>
           <p className="EventPage__content-description  ">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
-            maiores cupiditate voluptatem modi autem maxime recusandae dolore
-            magnam inventore laudantium iste id quam voluptatibus veniam
-            accusamus repellendus, quae obcaecati. Amet, dicta! Doloribus
-            possimus natus voluptatum odio ex totam aliquid quasi non aliquam
-            dignissimos sit amet, asperiores voluptate labore. Ratione,
-            aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Animi maiores cupiditate voluptatem modi autem maxime recusandae
-            dolore magnam inventore laudantium iste id quam voluptatibus veniam
-            accusamus repellendus, quae obcaecati. Amet, dicta! Doloribus
-            possimus natus voluptatum odio ex totam aliquid quasi non aliquam
-            dignissimos sit amet, asperiores voluptate labore. Ratione,
-            aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Animi maiores cupiditate voluptatem modi autem maxime recusandae
-            dolore magnam inventore laudantium iste id quam voluptatibus veniam
-            accusamus repellendus, quae obcaecati. Amet, dicta! Doloribus
-            possimus natus voluptatum odio ex totam aliquid quasi non aliquam
-            dignissimos sit amet, asperiores voluptate labore. Ratione,
-            aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Animi maiores cupiditate voluptatem modi autem maxime recusandae
-            dolore magnam inventore laudantium iste id quam voluptatibus veniam
-            accusamus repellendus, quae obcaecati. Amet, dicta! Doloribus
-            possimus natus voluptatum odio ex totam aliquid quasi non aliquam
-            dignissimos sit amet, asperiores voluptate labore. Ratione, aliquam!
+            {this.state.description
+              ? this.state.description
+              : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animimaiores cupiditate voluptatem modi autem maxime recusandae doloremagnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione,aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.Animi maiores cupiditate voluptatem modi autem maxime recusandaedolore magnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione,aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.Animi maiores cupiditate voluptatem modi autem maxime recusandaedolore magnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione,aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.Animi maiores cupiditate voluptatem modi autem maxime recusandaeolore magnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione, aliquam!"}
           </p>
         </div>
       </div>

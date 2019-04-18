@@ -50,16 +50,7 @@ class YourEvents extends Component {
         />
       </Link>
     ));
-    return (
-      <div className="YourEventPage">
-        <h1>YourEvents</h1>
-        <h1>YourEvents</h1>
-        <h1>YourEvents</h1>
-        <h1>YourEvents</h1>
-        <h1>YourEvents</h1>
-        {eventList}
-      </div>
-    );
+    return <div className="YourEventPage">{eventList}</div>;
   }
 }
 const mapStateToProps = state => {

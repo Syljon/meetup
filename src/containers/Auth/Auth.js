@@ -12,6 +12,11 @@ class Auth extends Component {
     password: "zxczxc",
     isSignup: true
   };
+
+  componentDidMount() {
+    this.props.onMountReset();
+  }
+
   sendFormHandler = e => {
     e.preventDefault();
     this.props.onSubmitForm(
@@ -32,6 +37,7 @@ class Auth extends Component {
     return (
       <div className="AuthPage">
         {this.props.token ? <Redirect to="/" /> : null}
+        {this.props.error ? <h2>{this.props.error}</h2> : null}
         <form className="form" onSubmit={this.sendFormHandler}>
           <h1 className="form-heading">
             {this.state.isSignup ? "Login" : "Registration"}
@@ -66,14 +72,16 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
   return {
-    token: state.token
+    token: state.token,
+    error: state.error
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     onSubmitForm: (email, password, isSignup) =>
-      dispatch(actions.auth(email, password, isSignup))
+      dispatch(actions.auth(email, password, isSignup)),
+    onMountReset: () => dispatch(actions.authReset())
   };
 };
 export default connect(

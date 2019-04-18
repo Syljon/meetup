@@ -3,6 +3,7 @@ import { storage } from "../../firebase/index";
 
 import Input from "../../components/Input/Input";
 import InputFile from "../../components/Input/InputFile";
+import TextArea from "../../components/TextArea/TextArea";
 import SubmitButton from "../../components/Buttons/SubmitButton/SubmitButton";
 import { connect } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
@@ -18,6 +19,7 @@ class AddEvent extends Component {
     time: "",
     imageURL: null,
     image: null,
+    description: "",
     loading: false
   };
 
@@ -69,7 +71,8 @@ class AddEvent extends Component {
       userId: this.props.userId,
       userEmail: this.props.userEmail,
       eventId: null,
-      imageURL: this.state.imageURL
+      imageURL: this.state.imageURL,
+      description: this.state.description
     };
     const url =
       "https://react-meetup-c3c9c.firebaseio.com/events.json?auth=" +
@@ -144,6 +147,14 @@ class AddEvent extends Component {
               labelText="Time"
             />
             <InputFile changed={this.InputFileHandler} />
+            <TextArea
+              name="description"
+              value={this.state.description}
+              changed={this.InputChangeHandler}
+              placeholder="About your event ..."
+              style={{ marginBottom: "2rem" }}
+              labelText="Description"
+            />
             <SubmitButton>Submit</SubmitButton>
           </form>
         )}
