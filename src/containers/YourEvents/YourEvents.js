@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import EventBox from "../../components/EventBox/EventBox";
+import "./YourEvents.css";
 class YourEvents extends Component {
   state = {
     events: []
@@ -50,7 +51,11 @@ class YourEvents extends Component {
         />
       </Link>
     ));
-    return <div className="YourEventPage">{eventList}</div>;
+    return (
+      <div className="YourEventPage">
+        <div className="YourEventList">{eventList}</div>
+      </div>
+    );
   }
 }
 const mapStateToProps = state => {

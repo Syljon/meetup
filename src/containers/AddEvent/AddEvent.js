@@ -70,7 +70,6 @@ class AddEvent extends Component {
       date: { day: this.state.date, time: this.state.time },
       userId: this.props.userId,
       userEmail: this.props.userEmail,
-      eventId: null,
       imageURL: this.state.imageURL,
       description: this.state.description
     };
