@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import SubmitButton from "../../components/Buttons/SubmitButton/SubmitButton";
+import Button from "../../components/Buttons/Button";
 import { Redirect } from "react-router-dom";
 import "./EventPage.css";
 class EventPage extends Component {
@@ -71,7 +71,7 @@ class EventPage extends Component {
             Time: {this.state.date ? this.state.date.time : "No data found"}
           </h2>
           {this.props.userId ? (
-            <SubmitButton clicked={this.deleteEvent}>QWEQW</SubmitButton>
+            <Button clicked={this.deleteEvent}>QWEQW</Button>
           ) : null}
           <p className="EventPage__content-description  ">
             {this.state.description

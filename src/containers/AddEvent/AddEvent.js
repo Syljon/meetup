@@ -4,7 +4,7 @@ import { storage } from "../../firebase/index";
 import Input from "../../components/Input/Input";
 import InputFile from "../../components/Input/InputFile";
 import TextArea from "../../components/TextArea/TextArea";
-import SubmitButton from "../../components/Buttons/SubmitButton/SubmitButton";
+import Button from "../../components/Buttons/Button";
 import { connect } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import { Redirect } from "react-router-dom";
@@ -154,7 +154,7 @@ class AddEvent extends Component {
               style={{ marginBottom: "2rem" }}
               labelText="Description"
             />
-            <SubmitButton>Submit</SubmitButton>
+            <Button>Submit</Button>
           </form>
         )}
       </div>

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import EventBoxList from "../../components/EventBoxList/EventBoxList";
 import Input from "../../components/Input/Input";
-import CityButton from "../../components/Buttons/CityButton/CityButton";
 import Spinner from "../../components/Spinner/Spinner";
 import { connect } from "react-redux";
-
+import Button from "../../components/Buttons/Button";
 import "./HomePage.css";
 class HomePage extends Component {
   state = {
@@ -73,28 +72,24 @@ class HomePage extends Component {
           </div>
           <ul className="city__list">
             <li>
-              <CityButton
-                clicked={this.cityButtonClickHandler}
-                place="Katowice"
-              />
+              <Button clicked={this.cityButtonClickHandler} btnType="Info">
+                QAZ
+              </Button>
             </li>
             <li>
-              <CityButton
-                place="Warszawa"
-                clicked={this.cityButtonClickHandler}
-              />
+              <Button clicked={this.cityButtonClickHandler} btnType="Info">
+                Warszawa
+              </Button>
             </li>
             <li>
-              <CityButton
-                place="Wrocław"
-                clicked={this.cityButtonClickHandler}
-              />
+              <Button clicked={this.cityButtonClickHandler} btnType="Info">
+                Wrocław
+              </Button>
             </li>
             <li>
-              <CityButton
-                place="Chorzów"
-                clicked={this.cityButtonClickHandler}
-              />
+              <Button clicked={this.cityButtonClickHandler} btnType="Info">
+                Chorzów
+              </Button>
             </li>
           </ul>
         </header>

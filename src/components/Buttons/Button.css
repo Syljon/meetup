@@ -1,5 +1,4 @@
-.CityButton {
-  background-color: #3a72ec;
+.Button {
   width: 150px;
   height: 50px;
   text-align: center;
@@ -8,6 +7,17 @@
   border-radius: 15px;
   border: none;
 }
-.CityButton:hover {
+.Info {
+  background-color: #3a72ec;
+}
+.Info:hover {
   background-color: #005cfa;
+}
+
+.Success {
+  background-color: #b2e034;
+}
+
+.Success:hover {
+  background-color: #70940d;
 }
