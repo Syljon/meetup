@@ -38,7 +38,7 @@ class Auth extends Component {
       <div className="AuthPage">
         {this.props.token ? <Redirect to="/" /> : null}
         {this.props.error ? <h2>{this.props.error}</h2> : null}
-        <form className="form" onSubmit={this.sendFormHandler}>
+        <form className="loginForm" onSubmit={this.sendFormHandler}>
           <h1 className="form-heading">
             {this.state.isSignup ? "Login" : "Registration"}
           </h1>
@@ -60,7 +60,7 @@ class Auth extends Component {
             changed={this.InputChangeHandler}
             style={{ marginBottom: "2rem" }}
           />
-          <Button>SUBMIT</Button>
+          <Button btnType="Success">SUBMIT</Button>
         </form>
         <button className="btnSwitch" onClick={this.authSwitch}>
           {this.state.isSignup ? "SIGNUP" : "SIGNIN"}
