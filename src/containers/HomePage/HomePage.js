@@ -94,7 +94,6 @@ class HomePage extends Component {
           </ul>
         </header>
         <div className="EventBoxList">
-          {this.props.token}
           {this.state.events.length > 0 ? (
             <EventBoxList
               list={this.state.events}
@@ -111,7 +110,6 @@ class HomePage extends Component {
 }
 const mapStateToProps = state => {
   return {
-    test: state.test,
     token: state.token
   };
 };

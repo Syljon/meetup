@@ -71,7 +71,14 @@ class EventPage extends Component {
             Time: {this.state.date ? this.state.date.time : "No data found"}
           </h2>
           {this.props.userId ? (
-            <Button clicked={this.deleteEvent}>QWEQW</Button>
+            <Button btnType="Danger" clicked={this.deleteEvent}>
+              QWEQW
+            </Button>
+          ) : null}{" "}
+          {this.props.userId ? (
+            <Button btnType="Info" clicked={this.deleteEvent}>
+              QWEQW
+            </Button>
           ) : null}
           <p className="EventPage__content-description  ">
             {this.state.description

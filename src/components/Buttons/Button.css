@@ -21,3 +21,11 @@
 .Success:hover {
   background-color: #70940d;
 }
+
+.Danger {
+  background-color: #bb1c07;
+}
+
+.Danger:hover {
+  background-color: #7c1608;
+}
