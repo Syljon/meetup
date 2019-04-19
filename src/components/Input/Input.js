@@ -11,7 +11,7 @@ const input = props => (
     <input
       id={props.name}
       type={props.type}
-      className={["Input", props.classname].join(" ")}
+      className={["Input", props.inputType].join(" ")}
       name={props.name}
       onChange={props.changed}
       value={props.value}

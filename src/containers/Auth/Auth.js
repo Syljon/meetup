@@ -45,7 +45,7 @@ class Auth extends Component {
           <Input
             name="email"
             type="email"
-            classname="Input_Default"
+            inputType="Input_Form"
             value={this.state.email}
             placeholder="Enter Email"
             changed={this.InputChangeHandler}
@@ -54,7 +54,7 @@ class Auth extends Component {
           <Input
             name="password"
             type="password"
-            classname="Input_Default"
+            inputType="Input_Form"
             value={this.state.password}
             placeholder="Enter Password"
             changed={this.InputChangeHandler}

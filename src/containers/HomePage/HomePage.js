@@ -53,7 +53,7 @@ class HomePage extends Component {
             <div className="header__input">
               <Input
                 name="titleSearch"
-                classname="Input_Default"
+                inputType="Input_Default"
                 changed={this.InputChangeHandler}
                 value={this.state.titleSearch}
                 placeholder="Enter Title ..."
@@ -63,7 +63,7 @@ class HomePage extends Component {
             <div className="header__input">
               <Input
                 name="citySearch"
-                classname="Input_Default"
+                inputType="Input_Default"
                 changed={this.InputChangeHandler}
                 value={this.state.citySearch}
                 placeholder="Enter City ..."

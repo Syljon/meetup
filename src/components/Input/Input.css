@@ -19,6 +19,7 @@
 }
 
 .Input_Form:focus {
+  color: #000;
   border-bottom: 2px solid #000;
 }
 

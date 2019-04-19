@@ -99,7 +99,7 @@ class AddEvent extends Component {
             <h1 className="Form-heading">AddEvent</h1>
             <Input
               name="title"
-              classname="Input_Form"
+              inputType="Input_Form"
               changed={this.InputChangeHandler}
               value={this.state.title}
               placeholder="Enter Title"
@@ -108,7 +108,7 @@ class AddEvent extends Component {
             />
             <Input
               name="address"
-              classname="Input_Form"
+              inputType="Input_Form"
               changed={this.InputChangeHandler}
               value={this.state.address}
               placeholder="Enter Address"
@@ -118,7 +118,7 @@ class AddEvent extends Component {
             />
             <Input
               name="city"
-              classname="Input_Form"
+              inputType="Input_Form"
               changed={this.InputChangeHandler}
               value={this.state.city}
               placeholder="Enter City"
@@ -128,7 +128,7 @@ class AddEvent extends Component {
             />
             <Input
               name="date"
-              classname="Input_Form"
+              inputType="Input_Form"
               changed={this.InputChangeHandler}
               placeholder="Enter Date"
               style={{ marginBottom: "1rem" }}
@@ -137,7 +137,7 @@ class AddEvent extends Component {
             />
             <Input
               name="time"
-              classname="Input_Form"
+              inputType="Input_Form"
               value={this.state.time}
               changed={this.InputChangeHandler}
               placeholder="Enter Time"
@@ -154,7 +154,7 @@ class AddEvent extends Component {
               style={{ marginBottom: "2rem" }}
               labelText="Description"
             />
-            <Button>Submit</Button>
+            <Button btnType="Success">Submit</Button>
           </form>
         )}
       </div>
