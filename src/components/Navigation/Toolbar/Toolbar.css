@@ -11,17 +11,14 @@
 .toolbar__link {
   font-size: 1rem;
   text-decoration: none;
-  color: #333;
+  color: #494ca2;
   padding: 1rem;
 }
-.active {
-  background-color: #666;
-}
 .toolbar__link:hover {
-  color: #000;
-  background-color: #aaa;
+  color: #494ca2;
+  background-color: #8186d5;
 }
-@media (max-width: 500px) {
+@media (max-width: 599px) {
   .toolbar {
     display: none;
   }

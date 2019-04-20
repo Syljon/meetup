@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import EventBox from "../../components/EventBox/EventBox";
+import Spinner from "../../components/Spinner/Spinner";
 import "./YourEvents.css";
 class YourEvents extends Component {
   state = {
@@ -53,7 +54,9 @@ class YourEvents extends Component {
     ));
     return (
       <div className="YourEventPage">
-        <div className="YourEventList">{eventList}</div>
+        <div className="YourEventList">
+          {this.state.events.length > 0 ? eventList : <Spinner />}
+        </div>
       </div>
     );
   }

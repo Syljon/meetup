@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import "./Navigation.css";
-import logo from "../../assets/logo.png";
-import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
-import SideMenu from "../../components/Navigation/SideMenu/SideMenu";
 import { connect } from "react-redux";
-import * as actions from "../../store/actions";
 import { Link } from "react-router-dom";
+
+import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
+import MobileMenu from "../../components/Navigation/MobileMenu/MobileMenu";
+import * as actions from "../../store/actions";
+
+import logo from "../../assets/logo.png";
+import "./Navigation.css";
 class Navigation extends Component {
   state = {
-    showSideDrawer: false
+    showMobile: false
   };
 
   buttonClickHandler = () => {
     this.setState(prevState => {
-      return { showSideDrawer: !prevState.showSideDrawer };
+      return { showMobile: !prevState.showMobile };
     });
   };
   render() {
@@ -22,8 +24,8 @@ class Navigation extends Component {
         <Link className="logo" to="/">
           <img src={logo} alt="Logo" />
         </Link>
-        {this.state.showSideDrawer ? (
-          <SideMenu
+        {this.state.showMobile ? (
+          <MobileMenu
             token={this.props.token}
             clicked={this.buttonClickHandler}
             logout={this.props.onLogout}

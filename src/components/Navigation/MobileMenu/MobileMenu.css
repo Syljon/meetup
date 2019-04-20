@@ -1,4 +1,4 @@
-.sideMenu {
+.mobileMenu {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,28 +9,31 @@
   justify-content: flex-start;
   text-align: center;
   align-items: center;
-  background-color: #ddd;
+  background-color: #e3e7f1;
 }
-.sideMenu__item {
+.mobileMenu__item {
   list-style: none;
   width: 100%;
   padding: 2rem 0;
 }
-.sideMenu__link {
+.mobileMenu__link {
   width: 100%;
   font-size: 1.5rem;
   text-decoration: none;
-  color: #333;
+  color: #494ca2;
   margin: 0 1rem;
   cursor: pointer;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #494ca2;
 }
-.sideMenu__link:hover {
-  color: #000;
-  background-color: #aaa;
+.mobileMenu__link:hover {
+  color: #494ca2;
+  background-color: #8186d5;
 }
-@media (min-width: 500px) {
-  .sideMenu {
+.Mobilelogo {
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .mobileMenu {
     display: none;
   }
 }

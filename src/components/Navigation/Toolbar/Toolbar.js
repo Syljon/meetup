@@ -13,7 +13,7 @@ const toolbar = props => (
     ) : null}
     {props.token ? (
       <NavLink className="toolbar__link" to="/yourevents">
-        <li className="toolbar__item">Your Events</li>
+        <li className="toolbar__item">My Events</li>
       </NavLink>
     ) : null}
     {props.token ? (
