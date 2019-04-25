@@ -17,7 +17,7 @@ const mobileMenu = props => (
       </NavLink>
     ) : null}
     {props.token ? (
-      <NavLink className="mobileMenu__link" to="/add">
+      <NavLink className="mobileMenu__link" to="/yourevents">
         <li className="mobileMenu__item">My Events</li>
       </NavLink>
     ) : null}

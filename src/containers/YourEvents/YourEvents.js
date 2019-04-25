@@ -39,20 +39,33 @@ class YourEvents extends Component {
     this.getEvents();
   }
   render() {
-    const eventList = this.state.events.map(event => (
-      <Link
-        to={`/event/${event.id}`}
-        key={event.id}
-        style={{ textDecoration: "none" }}
-      >
-        <EventBox
-          id={event.id}
-          title={event.title}
-          place={event.place.city}
-          image={event.imageURL}
-        />
-      </Link>
-    ));
+    let eventList;
+    if (this.state.events.length > 0) {
+      eventList = this.state.events.map(event => (
+        <Link
+          to={`/event/${event.id}`}
+          key={event.id}
+          style={{ textDecoration: "none" }}
+        >
+          <EventBox
+            id={event.id}
+            title={event.title}
+            place={event.place.city}
+            image={event.imageURL}
+          />
+        </Link>
+      ));
+    } else {
+      eventList = (
+        <h1
+          style={{
+            textAlign: "center"
+          }}
+        >
+          {"There is nothing here"}
+        </h1>
+      );
+    }
     return (
       <div className="YourEventPage">
         <div className="YourEventList">
