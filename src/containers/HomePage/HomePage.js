@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import EventBoxList from "../../components/EventBoxList/EventBoxList";
 import Input from "../../components/Input/Input";
 import Spinner from "../../components/Spinner/Spinner";
-import { connect } from "react-redux";
 import Button from "../../components/Buttons/Button";
 import "./HomePage.css";
 class HomePage extends Component {
@@ -10,8 +9,13 @@ class HomePage extends Component {
     citySearch: "",
     titleSearch: "",
     events: [],
-    loading: true
+    loading: true,
+    cityList: ["Katowice", "Warszawa", "Chorzów", "Poznań", "Gliwice", "Bytom"]
   };
+
+  componentDidMount() {
+    this.getEvents();
+  }
 
   getEvents = () => {
     const url = "https://react-meetup-c3c9c.firebaseio.com/events.json";
@@ -33,20 +37,28 @@ class HomePage extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getEvents();
-  }
-
   InputChangeHandler = e => {
     console.log(e.target.name, e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   };
+
   cityButtonClickHandler = e => {
     console.log(e.target.value);
     this.setState({ citySearch: e.target.value });
   };
 
   render() {
+    const cityBtnList = (
+      <ul className="city__list">
+        {this.state.cityList.map(cityName => (
+          <li key={cityName}>
+            <Button clicked={this.cityButtonClickHandler} btnType="Info">
+              {cityName}
+            </Button>
+          </li>
+        ))}
+      </ul>
+    );
     return (
       <div className="HomePage">
         <header className="HomePage__header">
@@ -72,28 +84,7 @@ class HomePage extends Component {
               />
             </div>
           </div>
-          <ul className="city__list">
-            <li>
-              <Button clicked={this.cityButtonClickHandler} btnType="Info">
-                QAZ
-              </Button>
-            </li>
-            <li>
-              <Button clicked={this.cityButtonClickHandler} btnType="Info">
-                Warszawa
-              </Button>
-            </li>
-            <li>
-              <Button clicked={this.cityButtonClickHandler} btnType="Info">
-                Wrocław
-              </Button>
-            </li>
-            <li>
-              <Button clicked={this.cityButtonClickHandler} btnType="Info">
-                Chorzów
-              </Button>
-            </li>
-          </ul>
+          {cityBtnList}
         </header>
         <div className="EventBoxList">
           {this.state.loading ? (
@@ -110,9 +101,4 @@ class HomePage extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    token: state.token
-  };
-};
-export default connect(mapStateToProps)(HomePage);
+export default HomePage;

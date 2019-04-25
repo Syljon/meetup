@@ -38,9 +38,6 @@ class EventPage extends Component {
         this.setState({ done: false });
       });
   };
-  editEvent = () => {
-    console.log("Edit");
-  };
   componentDidMount() {
     this.getEvent(this.props.match.params.id);
   }
@@ -78,15 +75,10 @@ class EventPage extends Component {
               <Button btnType="Danger" clicked={this.deleteEvent}>
                 Delete
               </Button>
-              <Button btnType="Info" clicked={this.editEvent}>
-                Edit
-              </Button>
             </div>
           ) : null}
           <p className="EventPage__content-description  ">
-            {this.state.description
-              ? this.state.description
-              : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animimaiores cupiditate voluptatem modi autem maxime recusandae doloremagnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione,aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.Animi maiores cupiditate voluptatem modi autem maxime recusandaedolore magnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione,aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.Animi maiores cupiditate voluptatem modi autem maxime recusandaedolore magnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione,aliquam!Lorem ipsum dolor, sit amet consectetur adipisicing elit.Animi maiores cupiditate voluptatem modi autem maxime recusandaeolore magnam inventore laudantium iste id quam voluptatibus veniamaccusamus repellendus, quae obcaecati. Amet, dicta! Doloribuspossimus natus voluptatum odio ex totam aliquid quasi non aliquamdignissimos sit amet, asperiores voluptate labore. Ratione, aliquam!"}
+            {this.state.description ? this.state.description : ""}
           </p>
         </div>
       </div>
