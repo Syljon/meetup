@@ -6,7 +6,8 @@ import Spinner from "../../components/Spinner/Spinner";
 import "./YourEvents.css";
 class YourEvents extends Component {
   state = {
-    events: []
+    events: [],
+    loading: true
   };
   getEvents = () => {
     const url = "https://react-meetup-c3c9c.firebaseio.com/events.json";
@@ -27,7 +28,7 @@ class YourEvents extends Component {
           response[key].id = key;
           fetchEvents.push(response[key]);
         }
-        this.setState({ events: fetchEvents });
+        this.setState({ events: fetchEvents, loading: false });
       })
       .catch(err => {
         console.log(err);
@@ -55,7 +56,7 @@ class YourEvents extends Component {
     return (
       <div className="YourEventPage">
         <div className="YourEventList">
-          {this.state.events.length > 0 ? eventList : <Spinner />}
+          {this.state.loading ? <Spinner /> : eventList}
         </div>
       </div>
     );

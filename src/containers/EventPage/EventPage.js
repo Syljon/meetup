@@ -38,6 +38,9 @@ class EventPage extends Component {
         this.setState({ done: false });
       });
   };
+  editEvent = () => {
+    console.log("Edit");
+  };
   componentDidMount() {
     this.getEvent(this.props.match.params.id);
   }
@@ -70,15 +73,15 @@ class EventPage extends Component {
           <h2 className="EventPage__content-place">
             Time: {this.state.date ? this.state.date.time : "No data found"}
           </h2>
-          {this.props.userId ? (
-            <Button btnType="Danger" clicked={this.deleteEvent}>
-              QWEQW
-            </Button>
-          ) : null}{" "}
-          {this.props.userId ? (
-            <Button btnType="Info" clicked={this.deleteEvent}>
-              QWEQW
-            </Button>
+          {this.props.userId === this.state.userId ? (
+            <div className="EventPage__functionBtn">
+              <Button btnType="Danger" clicked={this.deleteEvent}>
+                Delete
+              </Button>
+              <Button btnType="Info" clicked={this.editEvent}>
+                Edit
+              </Button>
+            </div>
           ) : null}
           <p className="EventPage__content-description  ">
             {this.state.description

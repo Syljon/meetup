@@ -9,7 +9,8 @@ class HomePage extends Component {
   state = {
     citySearch: "",
     titleSearch: "",
-    events: []
+    events: [],
+    loading: true
   };
 
   getEvents = () => {
@@ -24,10 +25,11 @@ class HomePage extends Component {
           response[key].id = key;
           fetchEvents.push(response[key]);
         }
-        this.setState({ events: fetchEvents });
+        this.setState({ events: fetchEvents, loading: false });
       })
       .catch(err => {
         console.log(err);
+        this.setState({ loading: false });
       });
   };
 
@@ -94,14 +96,14 @@ class HomePage extends Component {
           </ul>
         </header>
         <div className="EventBoxList">
-          {this.state.events.length > 0 ? (
+          {this.state.loading ? (
+            <Spinner />
+          ) : (
             <EventBoxList
               list={this.state.events}
               cityReducer={this.state.citySearch}
               titleReducer={this.state.titleSearch}
             />
-          ) : (
-            <Spinner />
           )}
         </div>
       </div>
