@@ -32,11 +32,15 @@ class Navigation extends Component {
           />
         ) : null}
         <Toolbar token={this.props.token} logout={this.props.onLogout} />
-        <div className="burger" onClick={this.buttonClickHandler}>
-          <div />
-          <div />
-          <div />
-        </div>
+        <button
+          className={[
+            "burger",
+            this.state.showMobile ? " burger-active" : ""
+          ].join("")}
+          onClick={this.buttonClickHandler}
+        >
+          <div className="burger__line" />
+        </button>
       </nav>
     );
   }

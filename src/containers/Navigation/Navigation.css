@@ -18,22 +18,43 @@
 .logo img {
   height: 100%;
 }
-.burger {
-  width: 35px;
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 15px 0;
-  box-sizing: border-box;
-  cursor: pointer;
-}
 
-.burger div {
-  width: 90%;
+.burger {
+  padding: 15px;
+  background: none;
+  border: none;
+}
+.burger__line {
+  width: 25px;
   height: 3px;
   background-color: #494ca2;
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+.burger__line::before,
+.burger__line::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 3px;
+  position: absolute;
+  background-color: #494ca2;
+  transition: transform 0.5s ease-in-out;
+}
+.burger__line::before {
+  top: -0.4rem;
+}
+.burger__line::after {
+  top: 0.4rem;
+}
+.burger-active .burger__line {
+  background-color: transparent;
+}
+.burger-active .burger__line::before {
+  transform: translateY(0.4rem) rotate(90deg);
+}
+.burger-active .burger__line::after {
+  transform: translateY(-0.4rem) rotate(180deg);
 }
 
 .active {
