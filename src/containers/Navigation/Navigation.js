@@ -19,6 +19,17 @@ class Navigation extends Component {
     });
   };
   render() {
+    let routes;
+
+    if (!this.props.token) {
+      routes = [{ name: "Home", to: "/" }, { name: "Login", to: "/login" }];
+    } else {
+      routes = [
+        { name: "Home", to: "/" },
+        { name: "Add Event", to: "/add" },
+        { name: "Your Events", to: "/yourevents" }
+      ];
+    }
     return (
       <nav className="navbar">
         <Link className="logo" to="/">
@@ -27,11 +38,16 @@ class Navigation extends Component {
         {this.state.showMobile ? (
           <MobileMenu
             token={this.props.token}
+            routes={routes}
             clicked={this.buttonClickHandler}
             logout={this.props.onLogout}
           />
         ) : null}
-        <Toolbar token={this.props.token} logout={this.props.onLogout} />
+        <Toolbar
+          token={this.props.token}
+          routes={routes}
+          logout={this.props.onLogout}
+        />
         <button
           className={[
             "burger",

@@ -11,8 +11,8 @@
 .toolbar__link {
   font-size: 1rem;
   text-decoration: none;
-  color: #494ca2;
-  padding: 1rem;
+  color: #8186d5;
+  padding: 0.5rem 1rem;
 }
 .toolbar__link:hover {
   color: #494ca2;

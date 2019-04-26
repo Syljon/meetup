@@ -1,31 +1,31 @@
 import React from "react";
-import "./Toolbar.css";
 import { NavLink } from "react-router-dom";
-const toolbar = props => (
-  <ul className="toolbar">
-    <NavLink className="toolbar__link" to="/" exact>
-      <li className="toolbar__item">Home</li>
-    </NavLink>
-    {props.token ? (
-      <NavLink className="toolbar__link" to="/add">
-        <li className="toolbar__item">Add New</li>
+import "./Toolbar.css";
+const toolbar = props => {
+  const navItems = props.routes.map(route => (
+    <li key={route.to} className="toolbar__item">
+      <NavLink className="toolbar__link" to={route.to} exact>
+        {route.name}
       </NavLink>
-    ) : null}
-    {props.token ? (
-      <NavLink className="toolbar__link" to="/yourevents">
-        <li className="toolbar__item">My Events</li>
-      </NavLink>
-    ) : null}
-    {props.token ? (
-      <NavLink onClick={props.logout} className="toolbar__link" to="/logout">
-        <li className="toolbar__item">Logout</li>
-      </NavLink>
-    ) : (
-      <NavLink className="toolbar__link" to="/login">
-        <li className="toolbar__item">Login</li>
-      </NavLink>
-    )}
-  </ul>
-);
+    </li>
+  ));
+  return (
+    <ul className="toolbar">
+      {navItems}
+      {props.token ? (
+        <li className="toolbar__item">
+          <NavLink
+            onClick={props.logout}
+            className="toolbar__link"
+            to="logout"
+            exact
+          >
+            Logout
+          </NavLink>
+        </li>
+      ) : null}
+    </ul>
+  );
+};
 
 export default toolbar;
