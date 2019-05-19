@@ -3,6 +3,8 @@ import EventBoxList from "../../components/EventBoxList/EventBoxList";
 import Input from "../../components/Input/Input";
 import Spinner from "../../components/Spinner/Spinner";
 import Button from "../../components/Buttons/Button";
+
+import { getEvents } from "../../API/API";
 import "./HomePage.css";
 class HomePage extends Component {
   state = {
@@ -14,28 +16,10 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
-    this.getEvents();
+    getEvents()
+      .then(res => this.setState({ events: res, loading: false }))
+      .catch(err => this.setState({ loading: false }));
   }
-
-  getEvents = () => {
-    const url = "https://react-meetup-c3c9c.firebaseio.com/events.json";
-    fetch(url, {
-      method: "Get"
-    })
-      .then(response => response.json())
-      .then(response => {
-        let fetchEvents = [];
-        for (let key in response) {
-          response[key].id = key;
-          fetchEvents.push(response[key]);
-        }
-        this.setState({ events: fetchEvents, loading: false });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({ loading: false });
-      });
-  };
 
   InputChangeHandler = e => {
     console.log(e.target.name, e.target.value);

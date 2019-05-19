@@ -35,6 +35,7 @@ const eventBoxList = props => {
         title={event.title}
         place={event.place.city}
         image={event.imageURL}
+        description={event.description}
       />
     </Link>
   ));

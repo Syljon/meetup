@@ -1,44 +1,32 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./EventBox.css";
 
-const eventBox = props => (
+const eventBox = ({ image, title, place, description }) => (
   <div className="EventBox">
     <div
       className="EventBox__image"
       style={{
-        backgroundImage: props.image
-          ? `url(${props.image})`
+        backgroundImage: image
+          ? `url(${image})`
           : "linear-gradient(to bottom, blue, #2f00ff)"
       }}
     />
     <div className="EventBox__content">
-      <h1 className="EventBox__content-title">
-        {props.title ? props.title : "No data found"}
-      </h1>
-      <h2 className="EventBox__content-place">
-        {props.place ? props.place : "No data found"}
-      </h2>
-      <p className="EventBox__content-description">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi maiores
-        cupiditate voluptatem modi autem maxime recusandae dolore magnam
-        inventore laudantium iste id quam voluptatibus veniam accusamus
-        repellendus, quae obcaecati. Amet, dicta! Doloribus possimus natus
-        voluptatum odio ex totam aliquid quasi non aliquam dignissimos sit amet,
-        asperiores voluptate labore. Ratione, aliquam! inventore laudantium iste
-        id quam voluptatibus veniam accusamus repellendus, quae obcaecati. Amet,
-        dicta! Doloribus possimus natus voluptatum odio ex totam aliquid quasi
-        non aliquam dignissimos sit amet, asperiores voluptate labore. Ratione,
-        aliquam! inventore laudantium iste id quam voluptatibus veniam accusamus
-        repellendus, quae obcaecati. Amet, dicta! Doloribus possimus natus
-        voluptatum odio ex totam aliquid quasi non aliquam dignissimos sit amet,
-        asperiores voluptate labore. Ratione, aliquam! inventore laudantium iste
-        id quam voluptatibus veniam accusamus repellendus, quae obcaecati. Amet,
-        dicta! Doloribus possimus natus voluptatum odio ex totam aliquid quasi
-        non aliquam dignissimos sit amet, asperiores voluptate labore. Ratione,
-        aliquam!
-      </p>
+      {title && <h1 className="EventBox__content-title">{title}</h1>}
+      {place && <h2 className="EventBox__content-place">{place}</h2>}
+      {description && (
+        <p className="EventBox__content-description">
+          {description.slice(0, 200) + " ..."}
+        </p>
+      )}
     </div>
   </div>
 );
-
+eventBox.protoType = {
+  image: PropTypes.string,
+  title: PropTypes.string,
+  place: PropTypes.string,
+  description: PropTypes.string
+};
 export default eventBox;
