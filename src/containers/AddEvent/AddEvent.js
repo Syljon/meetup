@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import { storage } from "../../firebase/index";
 
 import Input from "../../components/Input/Input";
 import InputFile from "../../components/Input/InputFile";
 import TextArea from "../../components/TextArea/TextArea";
 import Button from "../../components/Buttons/Button";
-import { connect } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
-import { Redirect } from "react-router-dom";
+
 import "./AddEvent.css";
 
 class AddEvent extends Component {
@@ -91,7 +92,8 @@ class AddEvent extends Component {
   render() {
     return (
       <div className="AddEventPage">
-        {this.state.eventId ? <Redirect to="/" /> : null}
+        {this.state.eventId && <Redirect to="/" />}
+        {/* {this.state.eventId ? <Redirect to="/" /> : null} */}
         {this.state.loading ? (
           <Spinner />
         ) : (

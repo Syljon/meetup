@@ -36,8 +36,8 @@ class Auth extends Component {
   render() {
     return (
       <div className="AuthPage">
-        {this.props.token ? <Redirect to="/" /> : null}
-        {this.props.error ? <h2>{this.props.error}</h2> : null}
+        {this.props.token && <Redirect to="/" />}
+        {this.props.error && <h2>{this.props.error}</h2>}
         <form className="loginForm" onSubmit={this.sendFormHandler}>
           <h1 className="form-heading">
             {this.state.isSignup ? "Login" : "Registration"}
