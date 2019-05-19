@@ -12,7 +12,7 @@ const button = ({ children, clicked, btnType }) => (
   </button>
 );
 button.propTypes = {
-  clicked: PropTypes.func.isRequired,
+  clicked: PropTypes.func,
   btnType: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),

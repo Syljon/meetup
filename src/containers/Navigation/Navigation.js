@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import MobileMenu from "../../components/Navigation/MobileMenu/MobileMenu";
-import * as actions from "../../store/actions";
 
 import logo from "../../assets/logo.png";
+
 import "./Navigation.css";
+
+import * as actions from "../../store/actions";
+
 class Navigation extends Component {
   state = {
     showMobile: false
@@ -18,31 +21,28 @@ class Navigation extends Component {
       return { showMobile: !prevState.showMobile };
     });
   };
-  render() {
-    let routes;
 
-    if (!this.props.token) {
-      routes = [{ name: "Home", to: "/" }, { name: "Login", to: "/login" }];
-    } else {
-      routes = [
-        { name: "Home", to: "/" },
-        { name: "Add Event", to: "/add" },
-        { name: "Your Events", to: "/yourevents" }
-      ];
-    }
+  render() {
+    let routes = !this.props.token
+      ? [{ name: "Home", to: "/" }, { name: "Login", to: "/login" }]
+      : [
+          { name: "Home", to: "/" },
+          { name: "Add Event", to: "/add" },
+          { name: "Your Events", to: "/yourevents" }
+        ];
     return (
       <nav className="navbar">
         <Link className="logo" to="/">
           <img src={logo} alt="Logo" />
         </Link>
-        {this.state.showMobile ? (
+        {this.state.showMobile && (
           <MobileMenu
             token={this.props.token}
             routes={routes}
             clicked={this.buttonClickHandler}
             logout={this.props.onLogout}
           />
-        ) : null}
+        )}
         <Toolbar
           token={this.props.token}
           routes={routes}
