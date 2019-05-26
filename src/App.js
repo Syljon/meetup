@@ -41,13 +41,26 @@ class App extends Component {
       <div className="wrapper">
         <Navigation />
         {routes}
+        {this.props.userName && (
+          <p
+            style={{
+              fontSize: "0.8rem",
+              position: "absolute",
+              right: "5px",
+              top: "8vh"
+            }}
+          >
+            You are logged in as <strong>{this.props.userName}</strong>
+          </p>
+        )}
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    token: state.token
+    token: state.token,
+    userName: state.userName
   };
 };
 export default connect(mapStateToProps)(App);

@@ -14,6 +14,7 @@ const Header = ({ titleSearch, citySearch, InputChangeHandler }) => {
             changed={InputChangeHandler}
             name="titleSearch"
             value={titleSearch}
+            classys="Input Input-white"
             placeholder="Enter Title ..."
           />
         </div>
@@ -23,6 +24,7 @@ const Header = ({ titleSearch, citySearch, InputChangeHandler }) => {
             name="citySearch"
             changed={InputChangeHandler}
             value={citySearch}
+            classys="Input Input-white"
             placeholder="Enter City ..."
           />
         </div>

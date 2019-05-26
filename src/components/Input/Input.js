@@ -2,7 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Input.css";
 
-const input = ({ labelText, name, type, changed, value, placeholder }) => (
+const input = ({
+  labelText,
+  name,
+  type,
+  changed,
+  value,
+  placeholder,
+  classys
+}) => (
   <>
     {/* {labelText ? (
       <label className="Label" htmlFor={name}>
@@ -12,7 +20,7 @@ const input = ({ labelText, name, type, changed, value, placeholder }) => (
     <input
       id={name}
       type={type}
-      className="Input"
+      className={classys}
       name={name}
       onChange={changed}
       value={value}
