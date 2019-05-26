@@ -13,8 +13,7 @@ class HomePage extends Component {
     titleSearch: "",
     events: [],
     eventsReduce: [],
-    loading: true,
-    cityList: ["Katowice", "Warszawa", "Chorzów", "Poznań", "Gliwice", "Bytom"]
+    loading: true
   };
   componentDidMount() {
     getEvents()
@@ -26,6 +25,10 @@ class HomePage extends Component {
 
   InputChangeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
+    if (!e.target.value) {
+      this.setState({ eventsReduce: [] });
+      return;
+    }
     const events =
       e.target.name === "citySearch"
         ? this.cityReducerHandler(this.state.events, e.target.value)
@@ -34,46 +37,26 @@ class HomePage extends Component {
     this.setState({ eventsReduce: events });
   };
 
-  cityButtonClickHandler = e => {
-    this.setState({ citySearch: e.target.value });
-    const events = this.cityReducerHandler(this.state.events, e.target.value);
-    this.setState({ eventsReduce: events });
-  };
-
   titleReducerHandler(T, red) {
-    if (!red) {
-      return T;
-    }
     return T.filter(
       p => p.title.toLowerCase().indexOf(red.toLowerCase()) !== -1
     );
   }
 
   cityReducerHandler(T, red) {
-    if (!red) {
-      return T;
-    }
     return T.filter(
       f => f.place.city.toLowerCase().indexOf(red.toLowerCase()) !== -1
     );
   }
 
   render() {
-    const {
-      cityList,
-      titleSearch,
-      citySearch,
-      loading,
-      eventsReduce
-    } = this.state;
+    const { titleSearch, citySearch, loading, eventsReduce } = this.state;
     return (
       <div className="HomePage">
         <Header
           citySearch={citySearch}
           titleSearch={titleSearch}
-          cityBtnList={cityList}
           InputChangeHandler={this.InputChangeHandler}
-          cityButtonClickHandler={this.cityButtonClickHandler}
         />
         <div className="EventBoxList">
           {loading ? <Spinner /> : <EventBoxList list={eventsReduce} />}

@@ -6,26 +6,5 @@
 .EventBoxList {
   width: 100%;
   padding: 5vh 0;
-  height: 60vh;
   overflow-y: scroll;
-}
-
-@media (min-width: 800px) {
-  .HomePage {
-    flex-direction: row;
-  }
-
-  .city__list {
-    display: flex;
-    width: 90%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    list-style-type: none;
-  }
-  .EventBoxList {
-    width: 100%;
-    padding: 10vh 0;
-    height: 100vh;
-    overflow-y: scroll;
-  }
 }

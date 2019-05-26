@@ -1,13 +1,27 @@
 .Input {
   width: 100%;
-  font-size: 1rem;
-}
-.Input_Default {
-  padding: 0.7rem;
-  border: 1px solid black;
-  border-radius: 1rem;
+  font-size: 1.5rem;
+  padding: 0.2rem 0.5rem;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #000ecc;
+  color: #f4f4f4;
   font-family: "Open Sans", sans-serif;
+  min-width: 250px;
 }
+.Input:focus {
+  border-bottom: 3px solid #000a94;
+}
+.Input::placeholder {
+  color: #e2e2e2;
+}
+
+/* .Label {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
 .Input_Form {
   padding: 0 0 0.25rem 0.5rem;
   color: #aaa;
@@ -26,17 +40,4 @@
 .Input_File {
   margin: 2rem;
   cursor: pointer;
-}
-
-.Label {
-  font-size: 1rem;
-  margin-left: 0.5rem;
-}
-@media (min-width: 800px) {
-  .Input_Form {
-    font-size: 1.5rem;
-  }
-  .Label {
-    font-size: 1.3rem;
-  }
-}
+} */

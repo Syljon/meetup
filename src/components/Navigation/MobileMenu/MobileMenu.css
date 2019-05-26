@@ -1,5 +1,6 @@
 .mobileMenu {
   position: fixed;
+  z-index: -1;
   top: 7.8vh;
   left: 0;
   width: 100%;

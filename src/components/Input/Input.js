@@ -1,25 +1,29 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Input.css";
 
-const input = props => (
-  <div style={{ textAlign: "left" }}>
-    {props.labelText ? (
-      <label className="Label" htmlFor={props.name}>
-        {props.labelText}
+const input = ({ labelText, name, type, changed, value, placeholder }) => (
+  <>
+    {/* {labelText ? (
+      <label className="Label" htmlFor={name}>
+        {labelText}
       </label>
-    ) : null}
+    ) : null} */}
     <input
-      id={props.name}
-      type={props.type}
-      className={["Input", props.inputType].join(" ")}
-      name={props.name}
-      onChange={props.changed}
-      value={props.value}
-      placeholder={props.placeholder}
-      style={props.style}
-      ref={props.test}
+      id={name}
+      type={type}
+      className="Input"
+      name={name}
+      onChange={changed}
+      value={value}
+      placeholder={placeholder}
     />
-  </div>
+  </>
 );
-
+input.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  changed: PropTypes.func.isRequired,
+  placeholder: PropTypes.string
+};
 export default input;
