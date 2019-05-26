@@ -8,8 +8,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #e3e7f1;
-  padding: 0 10%;
+  background-color: #333;
+  padding: 0 5%;
 }
 .logo {
   height: 100%;
@@ -25,9 +25,9 @@
   border: none;
 }
 .burger__line {
-  width: 25px;
-  height: 3px;
-  background-color: #494ca2;
+  width: 30px;
+  height: 3.5px;
+  background-color: #1c2bff;
   position: relative;
   transition: transform 0.5s ease-in-out;
 }
@@ -35,30 +35,30 @@
 .burger__line::after {
   content: "";
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 30px;
+  height: 3.5px;
   position: absolute;
-  background-color: #494ca2;
+  background-color: #1c2bff;
   transition: transform 0.5s ease-in-out;
 }
 .burger__line::before {
-  top: -0.4rem;
+  top: -0.5rem;
 }
 .burger__line::after {
-  top: 0.4rem;
+  top: 0.5rem;
 }
 .burger-active .burger__line {
   background-color: transparent;
 }
 .burger-active .burger__line::before {
-  transform: translateY(0.4rem) rotate(90deg);
+  transform: translateY(0.5rem) rotate(90deg);
 }
 .burger-active .burger__line::after {
-  transform: translateY(-0.4rem) rotate(180deg);
+  transform: translateY(-0.5rem) rotate(180deg);
 }
 
 .active {
-  background-color: #494ca2;
+  border-bottom: 3px solid #1c2bff;
 }
 .active > * {
   color: #c6cbef;

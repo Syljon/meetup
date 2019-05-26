@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://syljon.github.io/meetup",
   "dependencies": {
-    "firebase": "^5.9.4",
+    "firebase": "^6.0.4",
     "gh-pages": "^2.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -12,7 +12,7 @@
     "react-redux": "^7.0.1",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
@@ -31,5 +31,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.1"
+  }
 }

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
-import MobileMenu from "../../components/Navigation/MobileMenu/MobileMenu";
+import Toolbar from "./Toolbar/Toolbar";
+import MobileMenu from "./MobileMenu/MobileMenu";
 
 import logo from "../../assets/logo.png";
 
@@ -35,14 +35,6 @@ class Navigation extends Component {
         <Link className="logo" to="/">
           <img src={logo} alt="Logo" />
         </Link>
-        {this.state.showMobile && (
-          <MobileMenu
-            token={this.props.token}
-            routes={routes}
-            clicked={this.buttonClickHandler}
-            logout={this.props.onLogout}
-          />
-        )}
         <Toolbar
           token={this.props.token}
           routes={routes}
@@ -57,6 +49,14 @@ class Navigation extends Component {
         >
           <div className="burger__line" />
         </button>
+        {this.state.showMobile && (
+          <MobileMenu
+            token={this.props.token}
+            routes={routes}
+            clicked={this.buttonClickHandler}
+            logout={this.props.onLogout}
+          />
+        )}
       </nav>
     );
   }

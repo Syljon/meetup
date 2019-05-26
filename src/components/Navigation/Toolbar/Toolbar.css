@@ -6,17 +6,23 @@
 }
 .toolbar__item {
   list-style: none;
+  height: 100%;
 }
 
 .toolbar__link {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: #8186d5;
-  padding: 0.5rem 1rem;
+  color: #1c2bff;
+  padding: 0 1rem;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.2s ease-in;
 }
-.toolbar__link:hover {
-  color: #494ca2;
-  background-color: #8186d5;
+.toolbar__link:hover,
+.toolbar__link:focus {
+  background-color: #6a74ff;
 }
 @media (max-width: 599px) {
   .toolbar {
