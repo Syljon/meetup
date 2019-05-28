@@ -12,11 +12,11 @@ const input = ({
   classys
 }) => (
   <>
-    {/* {labelText ? (
+    {labelText ? (
       <label className="Label" htmlFor={name}>
         {labelText}
       </label>
-    ) : null} */}
+    ) : null}
     <input
       id={name}
       type={type}

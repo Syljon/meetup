@@ -11,32 +11,30 @@ import "./App.css";
 
 class App extends Component {
   render() {
+    // let routes = (
+    //   <Switch>
+    //     <Route exact path="/" component={HomePage} />
+    //     <Route exact path="/event/:id" component={EventPage} />
+    //     <Route exact path="/login" component={Auth} />{" "}
+    //     {this.props.token && (
+    //       <>
+    //         <Route exact path="/add" component={AddEvent} />
+    //         <Route exact path="/yourevents" component={YourEvents} />
+    //       </>
+    //     )}
+    //     <Redirect to="/" />
+    //   </Switch>
+    // );
     let routes = (
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/event/:id" component={EventPage} />
-        <Route exact path="/login" component={Auth} />{" "}
-        {this.props.token && (
-          <>
-            <Route exact path="/add" component={AddEvent} />
-            <Route exact path="/yourevents" component={YourEvents} />
-          </>
-        )}
+        <Route exact path="/add" component={AddEvent} />
+        <Route exact path="/login" component={Auth} />
+        <Route exact path="/yourevents" component={YourEvents} />
         <Redirect to="/" />
       </Switch>
     );
-    // if (this.props.token) {
-    //   routes = (
-    //     <Switch>
-    //       <Route exact path="/" component={HomePage} />
-    //       <Route exact path="/event/:id" component={EventPage} />
-    //       <Route exact path="/add" component={AddEvent} />
-    //       <Route exact path="/login" component={Auth} />
-    //       <Route exact path="/yourevents" component={YourEvents} />
-    //       <Redirect to="/" />
-    //     </Switch>
-    //   );
-    // }
     return (
       <div className="wrapper">
         <Navigation />
