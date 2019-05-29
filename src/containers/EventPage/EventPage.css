@@ -9,9 +9,10 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.8;
 }
-
+.EventPage__content {
+  background-color: #fff;
+}
 .EventPage__content-title {
   font-size: 3rem;
   margin: 0 0 2rem;

@@ -9,6 +9,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 
+import Backgroud from "./hoc/Background";
 class App extends Component {
   render() {
     // let routes = (
@@ -38,14 +39,15 @@ class App extends Component {
     return (
       <div className="wrapper">
         <Navigation />
-        {routes}
+        <Backgroud>{routes}</Backgroud>
         {this.props.userName && (
           <p
             style={{
               fontSize: "0.8rem",
               position: "absolute",
               right: "5px",
-              top: "8vh"
+              top: "8vh",
+              color: "#fff"
             }}
           >
             You are logged in as <strong>{this.props.userName}</strong>

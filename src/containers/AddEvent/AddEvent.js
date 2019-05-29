@@ -16,6 +16,7 @@ class AddEvent extends Component {
     image: null,
     description: "",
     loading: false,
+    redirect: false,
     inputs: [
       {
         name: "title",
@@ -61,7 +62,7 @@ class AddEvent extends Component {
     changeer[index].value = e.target.value;
     this.setState({ inputs: changeer });
   };
-  InputChangeHandler2 = e => {
+  TextAreaChangeHandler = e => {
     this.setState({ description: e.target.value });
   };
 
@@ -113,10 +114,12 @@ class AddEvent extends Component {
     const url =
       "https://react-meetup-c3c9c.firebaseio.com/events.json?auth=" +
       this.props.token;
-    return axios.post(url, data).then(res => console.log("Complete", res));
+    return axios.post(url, data).then(res => this.setState({ redirect: true }));
   };
+
   submitForm = e => {
     e.preventDefault();
+    this.setState({ loading: true });
     console.log(this.state.inputs, this.state.description, this.state.image);
     if (this.state.image) {
       console.log("POST WITH IMAGE");
@@ -130,34 +133,39 @@ class AddEvent extends Component {
   render() {
     return (
       <div className="AddEventPage">
-        <form className="Form" onSubmit={this.submitForm}>
-          <h1 className="Form-heading">AddEvent</h1>
-          {this.state.inputs.map((i, index) => {
-            return (
-              <div key={i.name} className="auth-form__input">
-                <Input
-                  classys="Input Input-blue"
-                  name={i.name}
-                  value={i.value}
-                  changed={e => this.InputChangeHandler(e, index)}
-                  placeholder={i.placeholder}
-                  labelText={i.labelText}
-                  type={i.type}
-                />
-              </div>
-            );
-          })}
-          <InputFile changed={this.InputFileHandler} />
-          <TextArea
-            name="description"
-            value={this.state.description}
-            changed={this.InputChangeHandler2}
-            placeholder="About your event ..."
-            style={{ marginBottom: "2rem" }}
-            labelText="Description"
-          />
-          <Button btnType="Success">Submit</Button>
-        </form>
+        {this.state.redirect && <Redirect to="/" />}
+        {this.state.loading ? (
+          <Spinner />
+        ) : (
+          <form className="Form" onSubmit={this.submitForm}>
+            <h1 className="Form-heading">AddEvent</h1>
+            {this.state.inputs.map((i, index) => {
+              return (
+                <div key={i.name} className="auth-form__input">
+                  <Input
+                    classys="Input Input-blue"
+                    name={i.name}
+                    value={i.value}
+                    changed={e => this.InputChangeHandler(e, index)}
+                    placeholder={i.placeholder}
+                    labelText={i.labelText}
+                    type={i.type}
+                  />
+                </div>
+              );
+            })}
+            <InputFile changed={this.InputFileHandler} />
+            <TextArea
+              name="description"
+              value={this.state.description}
+              changed={this.TextAreaChangeHandler}
+              placeholder="About your event ..."
+              style={{ marginBottom: "2rem" }}
+              labelText="Description"
+            />
+            <Button btnType="Success">Submit</Button>
+          </form>
+        )}
       </div>
     );
   }
