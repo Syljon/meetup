@@ -13,6 +13,8 @@ const eventBoxList = props => {
         id={event.id}
         title={event.title}
         place={event.place.city}
+        day={event.date.day}
+        time={event.date.time}
         image={event.imageURL}
         description={event.description}
       />
