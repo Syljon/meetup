@@ -46,7 +46,7 @@ class App extends Component {
               fontSize: "0.8rem",
               position: "absolute",
               right: "5px",
-              top: "8vh",
+              top: "10vh",
               color: "#fff"
             }}
           >
