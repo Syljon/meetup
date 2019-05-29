@@ -3,6 +3,7 @@ const initialState = {
   token: null,
   userId: null,
   userEmail: null,
+  userName: null,
   error: null
 };
 const reducer = (state = initialState, action) => {
@@ -12,7 +13,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         token: action.token,
         userId: action.userId,
-        userEmail: action.userEmail
+        userEmail: action.userEmail,
+        userName: action.userName
       };
     case actionTypes.AUTH_FAIL:
       return {
@@ -28,7 +30,7 @@ const reducer = (state = initialState, action) => {
         error: null
       };
     case actionTypes.LOGOUT:
-      return { ...state, token: null, userId: null, userEmail: null };
+      return initialState;
     default:
       return state;
   }

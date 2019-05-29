@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function getEvent(id) {
   const url = `https://react-meetup-c3c9c.firebaseio.com/events/${id}.json`;
   return fetch(url, {
@@ -47,3 +49,42 @@ export function getUserEvents(token, userId) {
       })
     );
 }
+
+export function signUpUser(email, password) {
+  let url =
+    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
+
+  return axios.post(url, {
+    email: email,
+    password: password,
+    returnSecureToken: true
+  });
+}
+
+export function setUserInfo(token, userName) {
+  let url =
+    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/setAccountInfo?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
+  return axios.post(url, {
+    idToken: token,
+    displayName: userName,
+    returnSecureToken: true
+  });
+}
+
+export function signInUser(email, password) {
+  let url =
+    "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
+  return axios.post(url, {
+    email: email,
+    password: password,
+    returnSecureToken: true
+  });
+}
+
+// export function getUserInfo(token) {
+//   let url =
+//     "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
+//   return axios.post(url, {
+//     idToken: token
+//   });
+// }

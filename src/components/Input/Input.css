@@ -5,23 +5,39 @@
   background: none;
   border: none;
   outline: none;
-  border-bottom: 3px solid #000ecc;
-  color: #f4f4f4;
   font-family: "Open Sans", sans-serif;
-  min-width: 250px;
+  transition: border-bottom 0.2s ease-in-out;
 }
-.Input:focus {
-  border-bottom: 3px solid #000a94;
+/* WHITE */
+.Input-white {
+  color: #fff;
+  border-bottom: 3px solid #fff;
 }
-.Input::placeholder {
-  color: #e2e2e2;
+.Input-white:focus {
+  border-bottom: 3px solid #9c9c9c;
+}
+.Input-white::placeholder {
+  color: #9c9c9c;
+}
+/* BLUE */
+.Input-blue {
+  color: #3d80fd;
+  border-bottom: 3px solid #1900ff;
+}
+.Input-blue:focus {
+  border-bottom: 3px solid #0a0091;
+}
+.Input-blue::placeholder {
+  color: #1900ff;
 }
 
-/* .Label {
+.Label {
+  display: block;
+  text-align: left;
   font-size: 1rem;
   margin-left: 0.5rem;
 }
-
+/*
 .Input_Form {
   padding: 0 0 0.25rem 0.5rem;
   color: #aaa;
