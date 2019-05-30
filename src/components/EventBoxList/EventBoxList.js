@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const eventBoxList = props => {
   const eventList = props.list.map(event => (
     <Link
-      to={`/event/${event.id}`}
+      to={`/meetup/event/${event.id}`}
       key={event.id}
       style={{ textDecoration: "none" }}
     >

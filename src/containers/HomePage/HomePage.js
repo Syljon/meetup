@@ -58,9 +58,13 @@ class HomePage extends Component {
           titleSearch={titleSearch}
           InputChangeHandler={this.InputChangeHandler}
         />
-        <div className="EventBoxList">
-          {loading ? <Spinner /> : <EventBoxList list={eventsReduce} />}
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="EventBoxList">
+            <EventBoxList list={eventsReduce} />
+          </div>
+        )}
       </div>
     );
   }

@@ -25,7 +25,7 @@ class EventPage extends Component {
   render() {
     return (
       <div className="EventPage">
-        {this.state.done && <Redirect to="/" />}
+        {this.state.done && <Redirect to="/meetup" />}
         <div className="EventPage__content">
           {this.state.title && (
             <h1 className="EventPage__content-title">{this.state.title}</h1>

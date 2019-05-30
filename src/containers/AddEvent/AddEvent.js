@@ -133,7 +133,7 @@ class AddEvent extends Component {
   render() {
     return (
       <div className="AddEventPage">
-        {this.state.redirect && <Redirect to="/" />}
+        {this.state.redirect && <Redirect to="/meetup" />}
         {this.state.loading ? (
           <Spinner />
         ) : (

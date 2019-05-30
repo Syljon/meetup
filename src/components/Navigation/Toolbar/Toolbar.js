@@ -17,7 +17,12 @@ const toolbar = ({ token, routes, logout }) => {
         ))}
       {token && (
         <li className="toolbar__item">
-          <NavLink onClick={logout} className="toolbar__link" to="logout" exact>
+          <NavLink
+            onClick={logout}
+            className="toolbar__link"
+            to="/meetup/logout"
+            exact
+          >
             Logout
           </NavLink>
         </li>
