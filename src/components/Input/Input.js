@@ -9,7 +9,9 @@ const input = ({
   changed,
   value,
   placeholder,
-  classys
+  classys,
+  valid,
+  touched
 }) => (
   <>
     {labelText ? (
@@ -26,6 +28,7 @@ const input = ({
       value={value}
       placeholder={placeholder}
     />
+    {touched && !valid && <h3 style={{ color: "red" }}>Complete this field</h3>}
   </>
 );
 input.propTypes = {

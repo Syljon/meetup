@@ -17,10 +17,14 @@ class AddEvent extends Component {
     description: "",
     loading: false,
     redirect: false,
+    formIsValid: false,
     inputs: [
       {
         name: "title",
         value: "",
+        validation: { required: true },
+        valid: false,
+        touched: false,
         placeholder: "Enter Title",
         type: "text",
         labelText: "Title"
@@ -28,6 +32,9 @@ class AddEvent extends Component {
       {
         name: "address",
         value: "",
+        validation: { required: true },
+        valid: false,
+        touched: false,
         placeholder: "Enter Address",
         type: "text",
         labelText: "Address"
@@ -35,6 +42,9 @@ class AddEvent extends Component {
       {
         name: "city",
         value: "",
+        validation: { required: true },
+        valid: false,
+        touched: false,
         placeholder: "Enter City",
         type: "text",
         labelText: "City"
@@ -42,6 +52,9 @@ class AddEvent extends Component {
       {
         name: "date",
         value: "",
+        validation: { required: true },
+        valid: false,
+        touched: false,
         placeholder: "Enter Date",
         type: "date",
         labelText: "Start Date"
@@ -49,6 +62,9 @@ class AddEvent extends Component {
       {
         name: "time",
         value: "",
+        validation: { required: true },
+        valid: false,
+        touched: false,
         placeholder: "Enter Time",
         type: "time",
         labelText: "End Date"
@@ -56,11 +72,32 @@ class AddEvent extends Component {
     ]
   };
 
+  InputIsValid(value, validation) {
+    let isValid = true;
+    if (validation.required) {
+      isValid = value.trim() !== "" && isValid;
+    }
+    return isValid;
+  }
+
   InputChangeHandler = (e, index) => {
     console.log(this.state.inputs[index].value);
-    let changeer = [...this.state.inputs];
-    changeer[index].value = e.target.value;
-    this.setState({ inputs: changeer });
+    const formElements = [...this.state.inputs];
+    const formElement = { ...formElements[index] };
+    formElement.value = e.target.value;
+    formElement.valid = this.InputIsValid(
+      formElement.value,
+      formElement.validation
+    );
+    formElement.touched = true;
+    formElements[index] = formElement;
+    //console.log("valid", formElement.valid, "touched", formElement.touched);
+    const InputsValid = formElements.map(i => i.valid);
+    console.log("formIsValid", !InputsValid.includes(false));
+    this.setState({
+      inputs: formElements,
+      formIsValid: !InputsValid.includes(false)
+    });
   };
   TextAreaChangeHandler = e => {
     this.setState({ description: e.target.value });
@@ -146,6 +183,8 @@ class AddEvent extends Component {
                     classys="Input Input-blue"
                     name={i.name}
                     value={i.value}
+                    valid={i.valid}
+                    touched={i.touched}
                     changed={e => this.InputChangeHandler(e, index)}
                     placeholder={i.placeholder}
                     labelText={i.labelText}
@@ -163,7 +202,9 @@ class AddEvent extends Component {
               style={{ marginBottom: "2rem" }}
               labelText="Description"
             />
-            <Button btnType="Success">Submit</Button>
+            <Button btnType="Success" disabled={!this.state.formIsValid}>
+              Submit
+            </Button>
           </form>
         )}
       </div>

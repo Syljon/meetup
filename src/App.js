@@ -5,8 +5,7 @@ import AddEvent from "./containers/AddEvent/AddEvent";
 import Navigation from "./components/Navigation/Navigation";
 import Auth from "./containers/Auth/Auth";
 import YourEvents from "./containers/YourEvents/YourEvents";
-import Error404 from "./containers/404/404";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 
@@ -24,7 +23,7 @@ class App extends Component {
             <Route exact path="/meetup/yourevents" component={YourEvents} />
           </>
         )}
-        <Route component={Error404} />
+        <Redirect to="/meetup" />
       </Switch>
     );
     // let routes = (
