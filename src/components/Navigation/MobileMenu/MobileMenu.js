@@ -20,7 +20,7 @@ const mobileMenu = ({ token, routes, clicked, logout }) => {
           <NavLink
             onClick={logout}
             className="mobileMenu__link"
-            to="/logout"
+            to="/meetup/logout"
             exact
           >
             Logout

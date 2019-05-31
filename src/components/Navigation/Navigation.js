@@ -24,15 +24,18 @@ class Navigation extends Component {
 
   render() {
     let routes = !this.props.token
-      ? [{ name: "Home", to: "/" }, { name: "Login", to: "/login" }]
+      ? [
+          { name: "Home", to: "/meetup" },
+          { name: "Login", to: "/meetup/login" }
+        ]
       : [
-          { name: "Home", to: "/" },
-          { name: "Add Event", to: "/add" },
-          { name: "Your Events", to: "/yourevents" }
+          { name: "Home", to: "/meetup" },
+          { name: "Add Event", to: "/meetup/add" },
+          { name: "Your Events", to: "/meetup/yourevents" }
         ];
     return (
       <nav className="navbar">
-        <Link className="logo" to="/">
+        <Link className="logo" to="/meetup">
           <img src={logo} alt="Logo" />
         </Link>
         <Toolbar

@@ -1,0 +1,22 @@
+.EventCountdown {
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.EventCountdown-lightblue {
+  color: #3d80fd;
+}
+.EventCountdown-blue {
+  color: #1900ff;
+}
+
+.EventCountdown-darkblue {
+  color: #0a0091;
+}
+@media (min-width: 500px) {
+  .EventCountdown {
+    font-size: 3rem;
+  }
+}

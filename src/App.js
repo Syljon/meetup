@@ -12,30 +12,30 @@ import "./App.css";
 import Backgroud from "./hoc/Background";
 class App extends Component {
   render() {
+    const routes = (
+      <Switch>
+        <Route exact path="/meetup" component={HomePage} />
+        <Route exact path="/meetup/event/:id" component={EventPage} />
+        <Route exact path="/meetup/login" component={Auth} />{" "}
+        {this.props.token && (
+          <>
+            <Route exact path="/meetup/add" component={AddEvent} />
+            <Route exact path="/meetup/yourevents" component={YourEvents} />
+          </>
+        )}
+        <Redirect to="/meetup" />
+      </Switch>
+    );
     // let routes = (
     //   <Switch>
     //     <Route exact path="/" component={HomePage} />
     //     <Route exact path="/event/:id" component={EventPage} />
-    //     <Route exact path="/login" component={Auth} />{" "}
-    //     {this.props.token && (
-    //       <>
-    //         <Route exact path="/add" component={AddEvent} />
-    //         <Route exact path="/yourevents" component={YourEvents} />
-    //       </>
-    //     )}
+    //     <Route exact path="/add" component={AddEvent} />
+    //     <Route exact path="/login" component={Auth} />
+    //     <Route exact path="/yourevents" component={YourEvents} />
     //     <Redirect to="/" />
     //   </Switch>
     // );
-    let routes = (
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/event/:id" component={EventPage} />
-        <Route exact path="/add" component={AddEvent} />
-        <Route exact path="/login" component={Auth} />
-        <Route exact path="/yourevents" component={YourEvents} />
-        <Redirect to="/" />
-      </Switch>
-    );
     return (
       <div className="wrapper">
         <Navigation />

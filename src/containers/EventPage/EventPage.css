@@ -1,64 +1,3 @@
-/* .EventPage {
-  height: 100%;
-  width: 100%;
-  padding: 8vh 0 0;
-}
-.EventPage__image {
-  width: 100%;
-  height: 30vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.EventPage__content {
-  background-color: #fff;
-}
-.EventPage__content-title {
-  font-size: 3rem;
-  margin: 0 0 2rem;
-  text-align: center;
-}
-.EventPage__content-place {
-  font-size: 1.5rem;
-  padding: 0.1rem 5rem;
-  font-size: 1.5rem;
-  padding: 0 1rem;
-}
-.EventPage__functionBtn {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem 0;
-}
-.EventPage__content-description {
-  font-size: 1rem;
-  padding: 2rem 5rem; 
-  padding: 0 1rem;
-}
-
-@media (min-width: 600px) {
-  .EventPage__image {
-    height: 50vh;
-    background-attachment: fixed;
-  }
-
-  .EventPage__content {
-    padding: 2rem 4rem;
-  }
-  .EventPage__content-place {
-    font-size: 1.5rem;
-    padding: 0.1rem 2rem;
-  }
-
-  .EventPage__functionBtn {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-  .EventPage__content-description {
-    padding: 1rem 2rem;
-  }
-} */
 .EventPage {
   width: 90%;
   max-width: 900px;
@@ -67,23 +6,28 @@
   background-color: #fff;
 }
 .EventPage__image {
-  /* width: 100%; */
-  height: 300px;
+  display: block;
+  height: auto;
+  width: 80%;
+  margin: 0 auto 1rem;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .EventPage__content {
   width: 90%;
   height: 100%;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .EventPage__content-title {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 0 0 2rem;
+  padding: 1rem 0;
   text-transform: uppercase;
   text-align: center;
+  color: #1900ff;
+  border-bottom: 2px dotted #1900ff;
 }
 .EventPage__content-place {
   font-size: 1rem;
@@ -92,19 +36,21 @@
 .EventPage__content-description {
   height: 100%;
   padding: 1rem;
+  text-align: justify;
+}
+.EventPage__content-creator {
+  text-align: center;
+  font-size: 1rem;
+  color: #3d80fd;
 }
 @media (min-width: 500px) {
   .EventPage__content-title {
-    font-size: 3rem;
-    margin: 2rem 0;
+    font-size: 3.5rem;
+    margin: 0 0 2rem;
   }
-
   .EventPage__content-place {
     font-size: 1.5rem;
   }
-  /* .EventPage__content-description {
-    font-size: 1.5rem;
-  } */
 }
 @media (min-width: 500px) {
   .EventPage__content-description {

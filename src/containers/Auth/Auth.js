@@ -73,7 +73,7 @@ class Auth extends Component {
   render() {
     return (
       <>
-        {this.props.token && <Redirect to="/" />}
+        {this.props.token && <Redirect to="/meetup" />}
         {this.state.loading ? (
           <Spinner />
         ) : (

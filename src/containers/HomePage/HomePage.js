@@ -32,9 +32,12 @@ class HomePage extends Component {
     const events =
       e.target.name === "citySearch"
         ? this.cityReducerHandler(this.state.events, e.target.value)
-        : this.titleReducerHandler(this.state.events, e.target.value);
-
-    this.setState({ eventsReduce: events });
+        : this.cityReducerHandler(this.state.events, this.state.citySearch);
+    const newEvents =
+      e.target.name === "titleSearch"
+        ? this.titleReducerHandler(events, e.target.value)
+        : this.titleReducerHandler(events, this.state.titleSearch);
+    this.setState({ eventsReduce: newEvents });
   };
 
   titleReducerHandler(T, red) {
@@ -51,6 +54,7 @@ class HomePage extends Component {
 
   render() {
     const { titleSearch, citySearch, loading, eventsReduce } = this.state;
+    console.table(this.state.eventsReduce);
     return (
       <div className="HomePage">
         <Header
@@ -58,9 +62,13 @@ class HomePage extends Component {
           titleSearch={titleSearch}
           InputChangeHandler={this.InputChangeHandler}
         />
-        <div className="EventBoxList">
-          {loading ? <Spinner /> : <EventBoxList list={eventsReduce} />}
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="EventBoxList">
+            <EventBoxList list={eventsReduce} />
+          </div>
+        )}
       </div>
     );
   }

@@ -14,11 +14,11 @@
 }
 
 .Success {
-  background-color: #b2e034;
+  background-color: #34e034;
 }
 
 .Success:hover {
-  background-color: #70940d;
+  background-color: #11a711;
 }
 
 .Danger {
