@@ -7,7 +7,7 @@ const eventBoxList = props => {
     <Link
       to={`/meetup/event/${event.id}`}
       key={event.id}
-      style={{ textDecoration: "none" }}
+      style={{ textDecoration: "none", width: "100%", height: "100%" }}
     >
       <EventBox
         id={event.id}
