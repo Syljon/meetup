@@ -17,7 +17,7 @@
   border-bottom: 3px solid #9c9c9c;
 }
 .Input-white::placeholder {
-  color: #9c9c9c;
+  color: #fff;
 }
 /* BLUE */
 .Input-blue {
