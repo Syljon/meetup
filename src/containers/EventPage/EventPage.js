@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { getEvent, deleteEvent } from "../../API/API";
 import Button from "../../components/Buttons/Button";
+import EventCountdown from "../../components/EventCountdown/EventCountdown";
 
 import "./EventPage.css";
 class EventPage extends Component {
@@ -40,15 +41,27 @@ class EventPage extends Component {
           {this.state.date && (
             <h2 className="EventPage__content-place">
               When:
-              {this.state.date.day &&
-                " " +
-                  this.state.date.day
-                    .split("-")
-                    .reverse()
-                    .join(".") +
-                  ","}
-              {this.state.date.time && " " + this.state.date.time}
+              {this.state.date &&
+                ` ${this.state.date.day
+                  .split("-")
+                  .reverse()
+                  .join(".")}, ${this.state.date.time}`}
             </h2>
+          )}
+          {this.state.imageURL && (
+            <img
+              alt="Event_image"
+              className="EventPage__image"
+              src={this.state.imageURL}
+            />
+          )}
+          {this.state.date && (
+            <EventCountdown
+              eventStartDate={
+                new Date(this.state.date.day + " " + this.state.date.time)
+              }
+              classys="EventCountdown-blue "
+            />
           )}
           {this.props.userId === this.state.userId && (
             <Button btnType="Danger" clicked={this.removeEvent}>
@@ -60,15 +73,12 @@ class EventPage extends Component {
               {this.state.description}
             </p>
           )}
+          {this.state.creator && (
+            <p className="EventPage__content-creator">
+              created by {this.state.creator}
+            </p>
+          )}
         </div>
-        {this.state.imageURL && (
-          <div
-            className="EventPage__image"
-            style={{
-              backgroundImage: `url(${this.state.imageURL})`
-            }}
-          />
-        )}
       </div>
     );
   }

@@ -145,6 +145,7 @@ class AddEvent extends Component {
       description: this.state.description,
       userEmail: this.props.userEmail,
       userId: this.props.userId,
+      creator: this.props.userName,
       imageURL: imageURL && imageURL
     };
     console.log(data);
@@ -216,6 +217,7 @@ const mapStateToProps = state => {
   return {
     userEmail: state.userEmail,
     userId: state.userId,
+    userName: state.userName,
     token: state.token
   };
 };
