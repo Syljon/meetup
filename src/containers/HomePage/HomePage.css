@@ -1,9 +1,4 @@
 .HomePage {
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
-}
-.EventBoxList {
-  width: 100%;
-  padding: 10vh 0;
 }

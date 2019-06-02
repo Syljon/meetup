@@ -1,13 +1,12 @@
 .mobileMenu {
   position: fixed;
   z-index: -1;
-  top: 7.8vh;
+  top: 50px;
   left: 0;
   width: 100%;
-  height: 92.2vh;
+  height: calc(100% - 50px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   text-align: center;
   align-items: center;
   background-color: #333;
@@ -16,7 +15,7 @@
 .mobileMenu__item {
   list-style: none;
   width: 100%;
-  padding: 2rem 0;
+  padding: 1rem 0;
   border-bottom: 3px solid transparent;
   transition: background-color 0.2s ease-in;
 }
@@ -24,7 +23,7 @@
   font-size: 1.5rem;
   padding: 1rem;
   text-decoration: none;
-  color: #1c2bff;
+  color: #eee;
 }
 @media (min-width: 600px) {
   .mobileMenu {

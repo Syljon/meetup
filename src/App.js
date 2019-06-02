@@ -9,7 +9,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 
-import Backgroud from "./hoc/Background";
 class App extends Component {
   render() {
     const routes = (
@@ -37,10 +36,10 @@ class App extends Component {
     //   </Switch>
     // );
     return (
-      <div className="wrapper">
+      <>
         <Navigation />
-        <Backgroud>{routes}</Backgroud>
-        {this.props.userName && (
+        {routes}
+        {/* {this.props.userName && (
           <p
             style={{
               fontSize: "0.8rem",
@@ -52,8 +51,8 @@ class App extends Component {
           >
             You are logged in as <strong>{this.props.userName}</strong>
           </p>
-        )}
-      </div>
+        )} */}
+      </>
     );
   }
 }

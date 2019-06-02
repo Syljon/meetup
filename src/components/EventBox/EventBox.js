@@ -1,36 +1,41 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./EventBox.css";
-
-const eventBox = ({ image, title, place, day, time, description }) => {
+function formatDate(val) {
+  return val
+    .split("-")
+    .reverse()
+    .join(".");
+}
+const eventBox = ({ image, title, place, day, time, description, address }) => {
   const exp = new Date(day + " " + time) - new Date();
   return (
     <div className="EventBox">
-      <div
-        className="EventBox__image"
-        style={{
-          backgroundImage: image
-            ? `url(${image})`
-            : "linear-gradient(to bottom, blue, #2f00ff)"
-        }}
-      />
       <div className="EventBox__content">
         {title && <h1 className="EventBox__content-title">{title}</h1>}
-        {place && <h2 className="EventBox__content-place">{place}</h2>}
-        <h2>
-          {exp > 0
-            ? `${day
-                .split("-")
-                .reverse()
-                .join(".")}`
-            : "The event has started"}
-        </h2>
+        {address && (
+          <p className="EventBox__content-place">{`${address}, ${place}`}</p>
+        )}
+        {exp > 0 ? (
+          <p className="EventBox__content-date">{formatDate(day)}</p>
+        ) : (
+          <p className="EventBox__content-date">The event has started</p>
+        )}
         {description && (
           <p className="EventBox__content-description">
             {description.slice(0, 200) + " ..."}
           </p>
         )}
       </div>
+      <img
+        className="EventBox__image"
+        alt="EventBox"
+        src={
+          image
+            ? image
+            : "https://images.pexels.com/photos/1629781/pexels-photo-1629781.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        }
+      />
     </div>
   );
 };

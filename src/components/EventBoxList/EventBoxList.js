@@ -1,6 +1,7 @@
 import React from "react";
 import EventBox from "../EventBox/EventBox";
 import { Link } from "react-router-dom";
+import "./EventBoxList.css";
 
 const eventBoxList = props => {
   const eventList = props.list.map(event => (
@@ -17,10 +18,11 @@ const eventBoxList = props => {
         time={event.date.time}
         image={event.imageURL}
         description={event.description}
+        address={event.place.address}
       />
     </Link>
   ));
-  return eventList;
+  return <div className="EventBoxList">{eventList}</div>;
 };
 
 export default eventBoxList;

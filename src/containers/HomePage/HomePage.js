@@ -65,9 +65,7 @@ class HomePage extends Component {
         {loading ? (
           <Spinner />
         ) : (
-          <div className="EventBoxList">
-            <EventBoxList list={eventsReduce} />
-          </div>
+          eventsReduce.length > 0 && <EventBoxList list={eventsReduce} />
         )}
       </div>
     );
