@@ -21,14 +21,11 @@
 }
 /* BLUE */
 .Input-blue {
-  color: #3d80fd;
-  border-bottom: 3px solid #1900ff;
+  color: #333;
+  border-bottom: 3px solid #3d80fd;
 }
 .Input-blue:focus {
   border-bottom: 3px solid #0a0091;
-}
-.Input-blue::placeholder {
-  color: #1900ff;
 }
 
 .Label {

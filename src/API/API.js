@@ -51,6 +51,7 @@ export function getUserEvents(token, userId) {
 }
 
 export function signUpUser(email, password) {
+  console.log("signUpUser");
   let url =
     "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
 

@@ -3,19 +3,22 @@ import HomePage from "./containers/HomePage/HomePage";
 import EventPage from "./containers/EventPage/EventPage";
 import AddEvent from "./containers/AddEvent/AddEvent";
 import Navigation from "./components/Navigation/Navigation";
-import Auth from "./containers/Auth/Auth";
+import LoginPage from "./containers/LoginPage/LoginPage";
+import RegisterPage from "./containers/RegisterPage/RegisterPage";
 import YourEvents from "./containers/YourEvents/YourEvents";
+import * as routes from "./helpers/routes";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 
 class App extends Component {
   render() {
-    const routes = (
+    const RouterRoutes = (
       <Switch>
-        <Route exact path="/meetup" component={HomePage} />
+        <Route exact path={routes.home} component={HomePage} />
         <Route exact path="/meetup/event/:id" component={EventPage} />
-        <Route exact path="/meetup/login" component={Auth} />{" "}
+        <Route exact path={routes.login} component={LoginPage} />
+        <Route exact path={routes.registration} component={RegisterPage} />
         {this.props.token && (
           <>
             <Route exact path="/meetup/add" component={AddEvent} />
@@ -38,7 +41,7 @@ class App extends Component {
     return (
       <>
         <Navigation />
-        {routes}
+        {RouterRoutes}
         {/* {this.props.userName && (
           <p
             style={{

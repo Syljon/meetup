@@ -8,7 +8,7 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.AUTH_SUCCESS:
+    case actionTypes.LOGIN_SUCCESS:
       return {
         ...state,
         token: action.token,
@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
         userEmail: action.userEmail,
         userName: action.userName
       };
-    case actionTypes.AUTH_FAIL:
+    case actionTypes.LOGIN_FAIL:
       return {
         ...state,
         error: action.error

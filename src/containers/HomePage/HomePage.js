@@ -54,7 +54,6 @@ class HomePage extends Component {
 
   render() {
     const { titleSearch, citySearch, loading, eventsReduce } = this.state;
-    console.table(this.state.eventsReduce);
     return (
       <div className="HomePage">
         <Header

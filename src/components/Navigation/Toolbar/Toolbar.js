@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import "./Toolbar.css";
 
-const toolbar = ({ token, routes, logout }) => {
+const toolbar = ({ routes }) => {
   return (
     <ul className="toolbar">
       {routes &&
@@ -15,24 +15,11 @@ const toolbar = ({ token, routes, logout }) => {
             </NavLink>
           </li>
         ))}
-      {token && (
-        <li className="toolbar__item">
-          <NavLink
-            onClick={logout}
-            className="toolbar__link"
-            to="/meetup/logout"
-            exact
-          >
-            Logout
-          </NavLink>
-        </li>
-      )}
     </ul>
   );
 };
 toolbar.propTypes = {
   token: PropTypes.string,
-  routes: PropTypes.array.isRequired,
-  logout: PropTypes.func.isRequired
+  routes: PropTypes.array.isRequired
 };
 export default toolbar;
