@@ -1,10 +1,39 @@
 .EventPage {
+  width: 100%;
+  height: 100%;
+  padding: 50px 0;
+  background-image: linear-gradient(
+      105deg,
+      rgba(25, 25, 25, 0.4) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    url(../../assets/showcase.jpg);
+  background-size: cover;
+  background-position: bottom;
+}
+.Event {
   width: 90%;
-  max-width: 900px;
-  margin: 15vh auto;
-  padding: 2vh 0;
+  margin: 2rem auto;
   background-color: #fff;
 }
+
+.Event__title {
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+  margin: 0 0 2rem;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  text-align: center;
+  color: #333;
+  border-bottom: 2px solid #1900ff;
+}
+
+.Event__place {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 .EventPage__image {
   display: block;
   height: auto;
@@ -15,23 +44,7 @@
   background-repeat: no-repeat;
 }
 .EventPage__content {
-  width: 90%;
   height: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.EventPage__content-title {
-  font-size: 1.5rem;
-  margin: 0 0 2rem;
-  padding: 1rem 0;
-  text-transform: uppercase;
-  text-align: center;
-  color: #1900ff;
-  border-bottom: 2px dotted #1900ff;
-}
-.EventPage__content-place {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
 }
 .EventPage__content-description {
   height: 100%;
@@ -42,18 +55,4 @@
   text-align: center;
   font-size: 1rem;
   color: #3d80fd;
-}
-@media (min-width: 500px) {
-  .EventPage__content-title {
-    font-size: 3.5rem;
-    margin: 0 0 2rem;
-  }
-  .EventPage__content-place {
-    font-size: 1.5rem;
-  }
-}
-@media (min-width: 500px) {
-  .EventPage__content-description {
-    font-size: 1.5rem;
-  }
 }

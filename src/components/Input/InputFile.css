@@ -12,11 +12,11 @@
   margin-bottom: 1.5rem;
   border-radius: 2rem;
   color: white;
-  background-color: #000;
+  background-color: #3a72ec;
   display: inline-block;
   cursor: pointer;
 }
 
 .InputFile:focus + .InputFileLabel {
-  background-color: #666;
+  background-color: #005cfa;
 }

@@ -5,6 +5,7 @@
   font-size: 1rem;
   border-radius: 15px;
   border: none;
+  color: #eee;
 }
 .Info {
   background-color: #3a72ec;
@@ -13,18 +14,10 @@
   background-color: #005cfa;
 }
 
-.Success {
-  background-color: #34e034;
+.Info-outline {
+  background-color: transparent;
+  border: 3px solid #3a72ec;
 }
-
-.Success:hover {
-  background-color: #11a711;
-}
-
-.Danger {
-  background-color: #bb1c07;
-}
-
-.Danger:hover {
-  background-color: #7c1608;
+.Info-outline:hover {
+  background-color: #005cfa;
 }

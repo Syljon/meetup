@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import "./MobileMenu.css";
 
-const mobileMenu = ({ token, routes, clicked, logout }) => {
+const mobileMenu = ({ routes, clicked }) => {
   return (
     <ul className="mobileMenu" onClick={clicked}>
       {routes &&
@@ -15,27 +15,13 @@ const mobileMenu = ({ token, routes, clicked, logout }) => {
             </NavLink>
           </li>
         ))}
-      {token && (
-        <li className="mobileMenu__item">
-          <NavLink
-            onClick={logout}
-            className="mobileMenu__link"
-            to="/meetup/logout"
-            exact
-          >
-            Logout
-          </NavLink>
-        </li>
-      )}
     </ul>
   );
 };
 
 mobileMenu.propTypes = {
-  token: PropTypes.string,
   routes: PropTypes.array.isRequired,
-  clicked: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired
+  clicked: PropTypes.func.isRequired
 };
 
 export default mobileMenu;

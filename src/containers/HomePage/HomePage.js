@@ -54,7 +54,6 @@ class HomePage extends Component {
 
   render() {
     const { titleSearch, citySearch, loading, eventsReduce } = this.state;
-    console.table(this.state.eventsReduce);
     return (
       <div className="HomePage">
         <Header
@@ -65,9 +64,7 @@ class HomePage extends Component {
         {loading ? (
           <Spinner />
         ) : (
-          <div className="EventBoxList">
-            <EventBoxList list={eventsReduce} />
-          </div>
+          eventsReduce.length > 0 && <EventBoxList list={eventsReduce} />
         )}
       </div>
     );
