@@ -6,38 +6,51 @@ import Navigation from "./components/Navigation/Navigation";
 import LoginPage from "./containers/LoginPage/LoginPage";
 import RegisterPage from "./containers/RegisterPage/RegisterPage";
 import YourEvents from "./containers/YourEvents/YourEvents";
+import SettingsPage from "./containers/SettingsPage/SettingsPage";
 import * as routes from "./helpers/routes";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
+
+const PrivateRoute = ({ component: Component, token, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      token ? <Component {...props} /> : <Redirect to={routes.login} />
+    }
+  />
+);
 
 class App extends Component {
   render() {
     const RouterRoutes = (
       <Switch>
         <Route exact path={routes.home} component={HomePage} />
-        <Route exact path="/meetup/event/:id" component={EventPage} />
+        <Route exact path={routes.eventPage} component={EventPage} />
         <Route exact path={routes.login} component={LoginPage} />
         <Route exact path={routes.registration} component={RegisterPage} />
-        {this.props.token && (
-          <>
-            <Route exact path="/meetup/add" component={AddEvent} />
-            <Route exact path="/meetup/yourevents" component={YourEvents} />
-          </>
-        )}
-        <Redirect to="/meetup" />
+        <PrivateRoute
+          token={this.props.token}
+          exact
+          path={routes.addEvent}
+          component={AddEvent}
+        />
+        <PrivateRoute
+          token={this.props.token}
+          exact
+          path={routes.yourEvents}
+          component={YourEvents}
+        />
+        <PrivateRoute
+          token={this.props.token}
+          exact
+          path={routes.settings}
+          component={SettingsPage}
+        />
+        <Redirect to={routes.home} />
       </Switch>
     );
-    // let routes = (
-    //   <Switch>
-    //     <Route exact path="/" component={HomePage} />
-    //     <Route exact path="/event/:id" component={EventPage} />
-    //     <Route exact path="/add" component={AddEvent} />
-    //     <Route exact path="/login" component={Auth} />
-    //     <Route exact path="/yourevents" component={YourEvents} />
-    //     <Redirect to="/" />
-    //   </Switch>
-    // );
+
     return (
       <>
         <Navigation />

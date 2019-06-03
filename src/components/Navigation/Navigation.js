@@ -28,6 +28,7 @@ class Navigation extends Component {
       : [
           { name: "Home", to: routes.home },
           { name: "Add Event", to: routes.addEvent },
+          { name: "Your Events", to: routes.yourEvents },
           { name: "Settings", to: routes.settings }
         ];
     return (

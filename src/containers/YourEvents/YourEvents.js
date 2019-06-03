@@ -40,9 +40,11 @@ class YourEvents extends Component {
 
     return (
       <div className="YourEventPage">
-        <div className="YourEventList">
-          {this.state.loading ? <Spinner /> : eventList}
-        </div>
+        {this.state.loading ? (
+          <Spinner />
+        ) : (
+          <div className="YourEventList">{eventList}</div>
+        )}
       </div>
     );
   }

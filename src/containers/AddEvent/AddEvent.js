@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { storage } from "../../firebase/index";
 import { Redirect } from "react-router-dom";
-
+import { formInputChange } from "../../helpers/formInputChange";
 import Input from "../../components/Input/Input";
 import InputFile from "../../components/Input/InputFile";
 import TextArea from "../../components/TextArea/TextArea";
@@ -11,6 +11,7 @@ import Button from "../../components/Buttons/Button";
 import Spinner from "../../components/Spinner/Spinner";
 
 import "./AddEvent.css";
+
 class AddEvent extends Component {
   state = {
     image: null,
@@ -72,38 +73,21 @@ class AddEvent extends Component {
     ]
   };
 
-  InputIsValid(value, validation) {
-    let isValid = true;
-    if (validation.required) {
-      isValid = value.trim() !== "" && isValid;
-    }
-    return isValid;
-  }
-
-  InputChangeHandler = (e, index) => {
-    console.log(this.state.inputs[index].value);
-    const formElements = [...this.state.inputs];
-    const formElement = { ...formElements[index] };
-    formElement.value = e.target.value;
-    formElement.valid = this.InputIsValid(
-      formElement.value,
-      formElement.validation
-    );
-    formElement.touched = true;
-    formElements[index] = formElement;
-    //console.log("valid", formElement.valid, "touched", formElement.touched);
+  inputChangeHandler = (e, index) => {
+    const formElements = formInputChange(e.target.value, index, [
+      ...this.state.inputs
+    ]);
     const InputsValid = formElements.map(i => i.valid);
-    console.log("formIsValid", !InputsValid.includes(false));
     this.setState({
       inputs: formElements,
       formIsValid: !InputsValid.includes(false)
     });
   };
-  TextAreaChangeHandler = e => {
+  textAreaChangeHandler = e => {
     this.setState({ description: e.target.value });
   };
 
-  InputFileHandler = e => {
+  inputFileHandler = e => {
     this.setState({ image: e.target.files[0] });
   };
 
@@ -175,18 +159,18 @@ class AddEvent extends Component {
         {this.state.loading ? (
           <Spinner />
         ) : (
-          <form className="Form" onSubmit={this.submitForm}>
-            <h1 className="Form-heading">AddEvent</h1>
+          <form className="AddEventForm" onSubmit={this.submitForm}>
+            <h1 className="AddEventForm__heading">AddEvent</h1>
             {this.state.inputs.map((i, index) => {
               return (
-                <div key={i.name} className="auth-form__input">
+                <div key={i.name} className="AddEventForm__input">
                   <Input
                     classys="Input Input-blue"
                     name={i.name}
                     value={i.value}
                     valid={i.valid}
                     touched={i.touched}
-                    changed={e => this.InputChangeHandler(e, index)}
+                    changed={e => this.inputChangeHandler(e, index)}
                     placeholder={i.placeholder}
                     labelText={i.labelText}
                     type={i.type}
@@ -194,16 +178,19 @@ class AddEvent extends Component {
                 </div>
               );
             })}
-            <InputFile changed={this.InputFileHandler} />
+            <InputFile changed={this.inputFileHandler} />
             <TextArea
               name="description"
               value={this.state.description}
-              changed={this.TextAreaChangeHandler}
+              changed={this.textAreaChangeHandler}
               placeholder="About your event ..."
               style={{ marginBottom: "2rem" }}
               labelText="Description"
             />
-            <Button btnType="Success" disabled={!this.state.formIsValid}>
+            <Button
+              btnType={this.state.formIsValid ? "Info" : "Danger"}
+              disabled={!this.state.formIsValid}
+            >
               Submit
             </Button>
           </form>

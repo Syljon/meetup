@@ -29,7 +29,6 @@ export const loginSuccess = (token, userId, userEmail, userName) => {
 };
 
 export const loginFail = error => {
-  console.log(error.response.data.error.message);
   return {
     type: actionTypes.LOGIN_FAIL,
     error: error.response.data.error.message
@@ -37,10 +36,10 @@ export const loginFail = error => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("userId");
-  localStorage.removeItem("logoutDate");
-  console.log("[actions.js] LOGOUT");
+  // localStorage.removeItem("token");
+  // localStorage.removeItem("userId");
+  // localStorage.removeItem("logoutDate");
+  // console.log("[actions.js] LOGOUT");
   return { type: actionTypes.LOGOUT };
 };
 export const authReset = () => {

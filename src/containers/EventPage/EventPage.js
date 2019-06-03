@@ -27,12 +27,12 @@ class EventPage extends Component {
     return (
       <div className="EventPage">
         {this.state.done && <Redirect to="/meetup" />}
-        <div className="EventPage__content">
+        <div className="Event">
           {this.state.title && (
-            <h1 className="EventPage__content-title">{this.state.title}</h1>
+            <h1 className="Event__title">{this.state.title}</h1>
           )}
           {this.state.place && (
-            <h2 className="EventPage__content-place">
+            <h2 className="EventPage__place">
               Where:
               {this.state.place.address && " " + this.state.place.address + ","}
               {this.state.place.city && " " + this.state.place.city}
