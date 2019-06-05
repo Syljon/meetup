@@ -4,7 +4,9 @@ const initialState = {
   userId: null,
   userEmail: null,
   userName: null,
-  error: null
+  error: null,
+  refreshToken: null,
+  expiryDate: null
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,7 +16,9 @@ const reducer = (state = initialState, action) => {
         token: action.token,
         userId: action.userId,
         userEmail: action.userEmail,
-        userName: action.userName
+        userName: action.userName,
+        refreshToken: action.refreshToken,
+        expiryDate: action.expiryDate
       };
     case actionTypes.LOGIN_FAIL:
       return {
@@ -28,6 +32,13 @@ const reducer = (state = initialState, action) => {
         userId: null,
         userEmail: null,
         error: null
+      };
+    case actionTypes.SET_NEW_TOKEN:
+      return {
+        ...state,
+        token: action.token,
+        refreshToken: action.refreshToken,
+        expiryDate: action.expiryDate
       };
     case actionTypes.LOGOUT:
       return initialState;

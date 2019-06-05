@@ -188,7 +188,7 @@ class AddEvent extends Component {
               labelText="Description"
             />
             <Button
-              btnType={this.state.formIsValid ? "Info" : "Danger"}
+              btnType={this.state.formIsValid ? "Info" : "Disabled"}
               disabled={!this.state.formIsValid}
             >
               Submit

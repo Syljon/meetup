@@ -21,3 +21,7 @@
 .Info-outline:hover {
   background-color: #005cfa;
 }
+
+.Disabled {
+  background-color: #a7c3ff;
+}

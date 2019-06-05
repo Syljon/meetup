@@ -128,7 +128,7 @@ class RegisterPage extends Component {
                 );
               })}
               <Button
-                btnType={this.state.formIsValid ? "Info" : "Danger"}
+                btnType={this.state.formIsValid ? "Info" : "Disabled"}
                 disabled={!this.state.formIsValid}
               >
                 SUBMIT

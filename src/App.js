@@ -78,4 +78,10 @@ const mapStateToProps = state => {
     userName: state.userName
   };
 };
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

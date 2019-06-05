@@ -1,12 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./EventBox.css";
-function formatDate(val) {
-  return val
-    .split("-")
-    .reverse()
-    .join(".");
-}
+import { formatDate } from "../../helpers/formatDate";
 const eventBox = ({ image, title, place, day, time, description, address }) => {
   const exp = new Date(day + " " + time) - new Date();
   return (
