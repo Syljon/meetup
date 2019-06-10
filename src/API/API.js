@@ -82,6 +82,15 @@ export function signInUser(email, password) {
   });
 }
 
+export function getNewToken(refresh_token) {
+  let url =
+    "https://securetoken.googleapis.com/v1/token?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";
+  return axios.post(url, {
+    grant_type: "refresh_token",
+    refresh_token: refresh_token
+  });
+}
+
 // export function getUserInfo(token) {
 //   let url =
 //     "https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyC0sZ_wlaL-fNxe24VaSLD8UZFB8yP_wYw";

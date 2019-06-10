@@ -18,11 +18,8 @@
 }
 
 .Event__title {
-  display: block;
-  width: 100%;
   font-size: 1.5rem;
-  margin: 0 0 2rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   text-transform: uppercase;
   text-align: center;
   color: #333;
@@ -31,28 +28,71 @@
 
 .Event__place {
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  padding: 0 1rem;
 }
 
-.EventPage__image {
+.Event__image {
   display: block;
   height: auto;
   width: 80%;
-  margin: 0 auto 1rem;
+  margin: 0 auto;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.EventPage__content {
-  height: 100%;
-}
-.EventPage__content-description {
-  height: 100%;
-  padding: 1rem;
+.Event__description {
+  padding: 0 1rem;
   text-align: justify;
 }
-.EventPage__content-creator {
+.Event__creator {
   text-align: center;
-  font-size: 1rem;
+  padding: 1rem;
+  font-size: 0.7rem;
   color: #3d80fd;
+}
+
+@media (min-width: 576px) {
+  .Event__title {
+    font-size: 2.5rem;
+  }
+  .Event__place {
+    font-size: 1.5rem;
+  }
+  .Event__description {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .Event {
+    max-width: 600px;
+  }
+  .Event__title {
+    font-size: 3.5rem;
+  }
+  .Event__place {
+    font-size: 1.5rem;
+  }
+  .Event__description {
+    padding: 0 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .Event {
+    max-width: 800px;
+  }
+  .Event__title {
+    font-size: 4rem;
+  }
+  .Event__place {
+    font-size: 1.5rem;
+  }
+  .Event__description {
+    padding: 0 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .Event {
+    max-width: 900px;
+  }
 }
